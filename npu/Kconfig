@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# NPU Configuration
+#
+
+config NPU
+    bool "NPU SUPOORT"
+    help
+        Support NPU Driver for openedges
+
