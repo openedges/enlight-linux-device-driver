@@ -31,6 +31,7 @@
 #include <asm/cacheflush.h>
 
 #include "npu.h"
+#include "../memory/eyenix/eyenix-cmm.h"
 
 static dev_t stDev;
 struct class *stClass;
@@ -38,25 +39,18 @@ struct class *stClass;
 struct npu_device_data {
 	struct cdev cdev;
 	struct device *dev;
-
+	
 	wait_queue_head_t irq_waitq;
 	atomic_t irq_done;
-
+	
 	void __iomem *membase;
-
 	const struct npu_reg_ops *reg_ops;
-
-	void *in_buf;
-	dma_addr_t in_phy;
-	void *out_buf;
-	dma_addr_t out_phy;
-	void *cmd_buf;
-	dma_addr_t cmd_phy;
-	void *weight_buf;
-	dma_addr_t weight_phy;
-	void *ac_buf;
-	dma_addr_t ac_phy;
-
+	struct eyenix_cmm_item 	*cmd_buf;
+	struct eyenix_cmm_item 	*in_buf;
+	struct eyenix_cmm_item 	*wei_buf;
+	struct eyenix_cmm_item 	*ac_buf;
+	struct eyenix_cmm_item 	*out_buf;
+	
 	unsigned int irq;
 };
 
@@ -102,7 +96,8 @@ static inline u32 npu_in32(u32 offset, struct npu_device_data *ndata)
 	return ndata->reg_ops->in(ndata->membase + offset);
 }
 
-static inline void npu_out32(u32 val, u32 offset, struct npu_device_data *ndata)
+static inline void npu_out32(u32 val, u32 offset,
+		struct npu_device_data *ndata)
 {
 	ndata->reg_ops->out(val, ndata->membase + offset);
 }
@@ -166,7 +161,8 @@ void npu_core_reset(struct npu_device_data *ndata)
 void npu_prepare_cmd(struct npu_device_data *ndata)
 {
 	unsigned int data;
-
+	
+	npu_core_reset(ndata);
 	data =  0x000 << 20;	//R_CB   0/128
 	data += 0x080 << 10;	//R_Y  128/128
 	data += 0x0c5 << 0;		//R_CR 197/128
@@ -187,11 +183,11 @@ void npu_prepare_cmd(struct npu_device_data *ndata)
 	data += 0x298 << 0;	 //B_BIAS - 128 : -360
 	npu_out32(data, ADDR_NPU_COLOR_CONV_BIAS, ndata);
 
-	npu_out32(ndata->cmd_phy, ADDR_NPU_BASE_ADDR0, ndata);
-	npu_out32(ndata->weight_phy, ADDR_NPU_BASE_ADDR1, ndata);
-	npu_out32(ndata->ac_phy, ADDR_NPU_BASE_ADDR2, ndata);
-	npu_out32(ndata->in_phy, ADDR_NPU_BASE_ADDR3, ndata);
-	npu_out32(ndata->out_phy, ADDR_NPU_BASE_ADDR4, ndata);
+	npu_out32(ndata->cmd_buf->phys_start, ADDR_NPU_BASE_ADDR0, ndata);
+	npu_out32(ndata->wei_buf->phys_start, ADDR_NPU_BASE_ADDR1, ndata);
+	npu_out32(ndata->ac_buf->phys_start, ADDR_NPU_BASE_ADDR2, ndata);
+	npu_out32(ndata->in_buf->phys_start, ADDR_NPU_BASE_ADDR3, ndata);
+	npu_out32(ndata->out_buf->phys_start, ADDR_NPU_BASE_ADDR4, ndata);
 	npu_out32(0, ADDR_NPU_BASE_ADDR5, ndata);
 	npu_out32(0, ADDR_NPU_BASE_ADDR6, ndata);
 	npu_out32(0, ADDR_NPU_BASE_ADDR7, ndata);
@@ -267,10 +263,11 @@ long npu_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
 {
 	struct npu_device_data *npu_data = fp->private_data;
 	unsigned int data;
-	struct npu_buf_info npu_buf;
-	void __user *compat_arg = (void __user *)arg;
+	//struct npu_buf_info npu_buf;
+	//void __user *compat_arg = (void __user *)arg;
 	int size, ret;
 
+	
 	if (_IOC_TYPE(cmd) != NPU_IOCTL_MAGIC) {
 		dev_err(npu_data->dev, "magic code error %c vs %c\n",
 					_IOC_TYPE(cmd), NPU_IOCTL_MAGIC);
@@ -296,69 +293,44 @@ long npu_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
 		}
 	}
 
-		switch	(cmd) {
+	switch	(cmd) {
 		case NPU_IOCTL_RUN:
-		    npu_prepare_cmd(npu_data);
-		    // APB command for load_description
-		    npu_out32((NPU_OPCODE_WR_REG << 28) + (0 << 24) + ((4 - 1) << 16) + ((0x004) << 0),	ADDR_NPU_APB_COMMAND, npu_data);
+			npu_prepare_cmd(npu_data);
+			// APB command for load_description
+			npu_out32((NPU_OPCODE_WR_REG << 28) + (0 << 24) + ((4 - 1) << 16) + ((0x004) << 0),	ADDR_NPU_APB_COMMAND, npu_data);
 			// [TODO]
-		    data = 0;
-		    npu_out32(data, ADDR_NPU_APB_COMMAND, npu_data);
-		    // [31:29] : reserved
-		    // [28:16] : ibuf_addr
-		    // [15:14] : ibuf_bank
-		    // [13   ] : csc_on
-		    // [12:11] : reserved
-		    // [10: 8] : base_buf_idx
-		    // [ 7: 6] : reserved
-		    // [ 5: 4] : mode
-		    // [ 3   ] : reserved
-		    // [ 2: 0] : cmd
-		    data = (0 << 8) + NPU_DMA_LOAD_DESC;
-		    npu_out32(data, ADDR_NPU_APB_COMMAND, npu_data);
-		    // offset_jump
-		    npu_out32(0x0, ADDR_NPU_APB_COMMAND, npu_data);
-		    // [31:20] num_chunk_m1
-		    // [19   ] reserved
-		    // [18: 0] sz_chunk
-		    npu_out32(128*4, ADDR_NPU_APB_COMMAND, npu_data);
-		    npu_out32((NPU_OPCODE_RUN << 28) + (1 << 24) + (1 << 16) + (0x000 << 0), ADDR_NPU_APB_COMMAND, (npu_data));
+			data = 0;
+			npu_out32(data, ADDR_NPU_APB_COMMAND, npu_data);
+			// [31:29] : reserved
+			// [28:16] : ibuf_addr
+			// [15:14] : ibuf_bank
+			// [13   ] : csc_on
+			// [12:11] : reserved
+			// [10: 8] : base_buf_idx
+			// [ 7: 6] : reserved
+			// [ 5: 4] : mode
+			// [ 3   ] : reserved
+			// [ 2: 0] : cmd
+			data = (0 << 8) + NPU_DMA_LOAD_DESC;
+			npu_out32(data, ADDR_NPU_APB_COMMAND, npu_data);
+			// offset_jump
+			npu_out32(0x0, ADDR_NPU_APB_COMMAND, npu_data);
+			// [31:20] num_chunk_m1
+			// [19   ] reserved
+			// [18: 0] sz_chunk
+			npu_out32(128*4, ADDR_NPU_APB_COMMAND, npu_data);
+			npu_out32((NPU_OPCODE_RUN << 28) + (1 << 24) + (1 << 16) + (0x000 << 0),
+					ADDR_NPU_APB_COMMAND, (npu_data));
 
-		    npu_out32(NPU_CTRL_RUN | NPU_CTRL_CMD_SRC, ADDR_NPU_CONTROL,
-						npu_data);
-			ret = npu_wait_interrupt(npu_data, 0, 1000);
+			npu_out32(NPU_CTRL_RUN | NPU_CTRL_CMD_SRC, ADDR_NPU_CONTROL,
+								npu_data);
+			ret = npu_wait_interrupt(npu_data, 0, 100);
 			if (ret) {
 				dev_err(npu_data->dev, "NPU Run fail\n");
 				npu_core_reset(npu_data);
 				return ret;
 			}
-			break;
-
-		case NPU_IOCTL_SET_CMD_BUF:
-			if (copy_from_user(&npu_buf, compat_arg,
-				sizeof(struct npu_buf_info))) {
-				dev_err(npu_data->dev, "fail, get CMD BUF info\n");
-				return -EFAULT;
-			}
-			if (copy_from_user(npu_data->cmd_buf,
-				(void __user *)npu_buf.buffer, npu_buf.size)) {
-				dev_err(npu_data->dev, "fail, copy CMD BUF\n");
-				return -EFAULT;
-			}
-			break;
-
-		case NPU_IOCTL_SET_WEIGHT_BUF:
-			if (copy_from_user(&npu_buf, compat_arg,
-					sizeof(struct npu_buf_info))) {
-				dev_err(npu_data->dev, "fail, get Weight/bias BUF info\n");
-				return -EFAULT;
-			}
-			if (copy_from_user(npu_data->weight_buf,
-				(void __user *)npu_buf.buffer, npu_buf.size)) {
-				dev_err(npu_data->dev, "fail, copy Weight/bias BUF\n");
-				return -EFAULT;
-			}
-			break;
+		break;
 	}
 
 	return 0;
@@ -378,22 +350,63 @@ int npu_open(struct inode *inode, struct file *fp)
 	return 0;
 }
 
+int npu_mmap(struct file *fp, struct vm_area_struct *vma)
+{
+	struct npu_device_data *npu_data = fp->private_data;
+	ssize_t memlen =  vma->vm_end - vma->vm_start;
+	u64 memaddr = 0;
+
+	switch (vma->vm_pgoff)
+	{
+		case NPU_CMD_BUF:
+			if(npu_data->cmd_buf == NULL)
+				npu_data->cmd_buf = ecmm_alloc("cmd", memlen);
+			memaddr = npu_data->cmd_buf->phys_start;
+		break;
+
+		case NPU_WEIGHT_BUF:
+			if(npu_data->wei_buf == NULL)
+				npu_data->wei_buf = ecmm_alloc("weight", memlen);
+			memaddr = npu_data->wei_buf->phys_start; 
+		break;
+
+		case NPU_INPUT_BUF:
+			if(npu_data->in_buf == NULL)
+				npu_data->in_buf = ecmm_alloc("in", memlen);
+			memaddr = npu_data->in_buf->phys_start;; 
+		break;
+
+		case NPU_OUT_BUF:
+			if(npu_data->out_buf == NULL)
+				npu_data->out_buf = ecmm_alloc("out", memlen);
+			memaddr = npu_data->out_buf->phys_start;; 
+		break;
+
+		case NPU_ACT_BUF:
+			if(npu_data->ac_buf == NULL)
+				npu_data->ac_buf = ecmm_alloc("act", memlen);
+			memaddr = npu_data->ac_buf->phys_start;; 
+		break;
+
+	}
+	return remap_pfn_range(vma, vma->vm_start, PFN_DOWN(memaddr), memlen, vma->vm_page_prot);
+}
+
 static const struct file_operations fops = {
 	.owner	 = THIS_MODULE,
-	.open	  = npu_open,
-	.write	 = npu_in_buf_write,
-	.read	  = npu_out_buf_read,
+	.open	 = npu_open,
 	.unlocked_ioctl	 = npu_ioctl,
-	.release   = npu_release,
+	.release = npu_release,
+	.mmap	= npu_mmap,
 };
 
 
 static int npu_device_probe(struct platform_device *pdev)
 {
-	int ret = 0;
 	struct device *dev;
 	struct npu_device_data *device = &devs[0];
 	struct device_node *node;
+	int ret = 0;
 
 	dev = &pdev->dev;
 	node = dev->of_node;
@@ -409,51 +422,13 @@ static int npu_device_probe(struct platform_device *pdev)
 	if (!device->membase)
 		return -EINVAL;
 
-	device->in_buf = dma_alloc_coherent(dev, 1024 * 1024,
-						&device->in_phy, GFP_DMA);
-	if (!device->in_buf) {
-		dev_err(dev, "DMA Memory in buf allocation fail!\n");
-		goto in_buf_err;
-	}
-
-	device->out_buf = dma_alloc_coherent(dev, 1024 * 1024,
-						&device->out_phy, GFP_DMA);
-	if (!device->out_buf) {
-		dev_err(dev, "DMA Memory out buf allocation fail!\n");
-		goto out_buf_err;
-	}
-
-	device->cmd_buf = dma_alloc_coherent(dev, 1024 * 1024,
-					&device->cmd_phy, GFP_DMA);
-	if (!device->cmd_buf) {
-		dev_err(dev, "DMA Memory cmd buf allocation fail!\n");
-		goto cmd_buf_err;
-	}
-
-	device->weight_buf = dma_alloc_coherent(dev, 4 * 1024 * 1024,
-						&device->weight_phy, GFP_DMA);
-	if (!device->weight_buf) {
-		dev_err(dev, "DMA Memory weight/bias buf allocation fail!\n");
-		goto weight_err;
-	}
-
-	ret = of_reserved_mem_device_init(&pdev->dev);
-	if (ret) {
-		dev_err(dev, "failed to assign reserved memory %d\n", ret);
-		goto ac_err;
-	}
-
-	dma_set_coherent_mask(&pdev->dev, 0xFFFFFFFF);
-	device->ac_buf = dma_zalloc_coherent(&pdev->dev, 16 * 1024 * 1024,
-		&device->ac_phy, GFP_KERNEL);
-
 	device->irq = platform_get_irq(pdev, 0);
 
 	ret = request_irq(device->irq, npu_isr, IRQF_TRIGGER_RISING,
 			"npu", device);
 	if (ret) {
 		dev_err(dev, "request irq fail\n");
-		goto ac_err;
+		goto cdev_err;
 	}
 
 	init_waitqueue_head(&device->irq_waitq);
@@ -466,10 +441,10 @@ static int npu_device_probe(struct platform_device *pdev)
 
 	ret = alloc_chrdev_region(&stDev, 0, 1, DEVICE_NAME);
 	if (ret < 0) {
-		dev_err(dev, "npu deivce init fail\n");
+		dev_err(dev, "npu device init fail\n");
 		goto cdev_err;
 	}
-	pr_info("npu deivce init success\n");
+	pr_info("npu device init success\n");
 
 	stClass = class_create(THIS_MODULE, DEVICE_NAME);
 	cdev_init(&devs[0].cdev, &fops);
@@ -485,16 +460,8 @@ static int npu_device_probe(struct platform_device *pdev)
 	return 0;
 
 cdev_err:
-	of_reserved_mem_device_release(&pdev->dev);
-ac_err:
-	dma_free_coherent(NULL, 4 * 1024 * 1024, device->weight_buf, device->weight_phy);
-weight_err:
-	dma_free_coherent(NULL, 1024 * 1024, device->cmd_buf, device->cmd_phy);
-cmd_buf_err:
-	dma_free_coherent(NULL, 1024 * 1024, device->out_buf, device->out_phy);
-out_buf_err:
-	dma_free_coherent(NULL, 1024 * 1024, device->in_buf, device->in_phy);
-in_buf_err:
+	free_irq(device->irq, device);
+	
 	return -EINVAL;
 }
 
@@ -511,11 +478,11 @@ static int npu_device_remove(struct platform_device *pdev)
 	iounmap(device->membase);
 	device->membase = NULL;
 
-	dma_free_coherent(NULL, 1024, device->in_buf, device->in_phy);
-	dma_free_coherent(NULL, 1024, device->out_buf, device->out_phy);
-	dma_free_coherent(NULL, 1024, device->cmd_buf, device->cmd_phy);
-	dma_free_coherent(NULL, 1024, device->weight_buf, device->weight_phy);
-	dma_free_coherent(NULL, 1024, device->ac_buf, device->ac_phy);
+	ecmm_free(device->in_buf);
+	ecmm_free(device->out_buf);
+	ecmm_free(device->wei_buf);
+	ecmm_free(device->cmd_buf);
+	ecmm_free(device->ac_buf);
 
 	of_reserved_mem_device_release(&pdev->dev);
 

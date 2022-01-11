@@ -24,7 +24,7 @@
 #define NPU_REGION					(6 * 16)
 #define ADDR_NPU_CONTROL			0x00
 #define ADDR_NPU_STATUS				0x04
-#define ADDR_NPU_APB_COMMAND		0x08
+#define ADDR_NPU_APB_COMMAND			0x08
 #define ADDR_NPU_RESERVED0			0x0C
 
 #define ADDR_NPU_IRQ_REASON			0x10
@@ -32,14 +32,14 @@
 #define ADDR_NPU_IRQ_MASK			0x18
 #define ADDR_NPU_IRQ_CLEAR			0x1C
 
-#define ADDR_NPU_COLOR_CONV_0		0x20
-#define ADDR_NPU_COLOR_CONV_1		0x24
-#define ADDR_NPU_COLOR_CONV_2		0x28
-#define ADDR_NPU_COLOR_CONV_BIAS	0x2C
+#define ADDR_NPU_COLOR_CONV_0			0x20
+#define ADDR_NPU_COLOR_CONV_1			0x24
+#define ADDR_NPU_COLOR_CONV_2			0x28
+#define ADDR_NPU_COLOR_CONV_BIAS		0x2C
 
-#define ADDR_NPU_READ_INT_REG		0x30
-#define ADDR_NPU_INT_REG_RDATA		0x34
-#define ADDR_NPU_CURR_CMD			0x38
+#define ADDR_NPU_READ_INT_REG			0x30
+#define ADDR_NPU_INT_REG_RDATA			0x34
+#define ADDR_NPU_CMD_CNT			0x38
 
 #define ADDR_NPU_BASE_ADDR0			0x40
 #define ADDR_NPU_BASE_ADDR1			0x44
@@ -51,7 +51,16 @@
 #define ADDR_NPU_BASE_ADDR6			0x58
 #define ADDR_NPU_BASE_ADDR7			0x5C
 
+#define ADDR_NPU_PERF_DMA			0x60
+#define ADDR_NPU_PERF_OACT			0x64
+
 #define FEED_CMD_FULL				(32)
+
+#define NPU_CMD_BUF 0
+#define NPU_WEIGHT_BUF 1
+#define NPU_INPUT_BUF 2
+#define NPU_OUT_BUF 3
+#define NPU_ACT_BUF 4
 
 enum {
 	NPU_CTRL_RUN		= 0x1,
@@ -63,7 +72,7 @@ enum {
 	NPU_IRQ_FULL_EMPTY	= 0x1,
 	NPU_IRQ_HALF_EMPTY	= 0x2,
 	NPU_IRQ_TRAP		= 0x4,
-	NPU_IRQ_ALL			= 0x7,
+	NPU_IRQ_ALL		= 0x7,
 };
 
 enum {
@@ -117,13 +126,11 @@ struct npu_buf_info {
 
 #define NPU_IOCTL_MAGIC	  'k'
 
-#define NPU_IOCTL_RUN			   _IO(NPU_IOCTL_MAGIC, 0)
+#define NPU_IOCTL_RUN		   _IO(NPU_IOCTL_MAGIC, 0)
 #define NPU_IOCTL_SET_CMD_BUF	   _IOW(NPU_IOCTL_MAGIC, 1, struct npu_buf_info)
 #define NPU_IOCTL_SET_WEIGHT_BUF	\
 			_IOW(NPU_IOCTL_MAGIC, 2, struct npu_buf_info)
 
-
 #define NPU_IOCTL_MAX		3
-
 
 #endif /*_NPU_H */
