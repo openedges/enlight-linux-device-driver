@@ -17,6 +17,7 @@
 #define NPU_MAJOR	   42
 #define NPU_MAX_MINORS  1
 #define NPU_BUSY_WAIT_DEF_TIMEOUT	250
+#define NPU_WAIT_DMA_BUSY_CNT		100
 
 #define NPU_MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define NPU_MAX(a, b) (((a) > (b)) ? (a) : (b))
@@ -120,17 +121,26 @@ enum {
 #define FEED_CMD_AT_HALF_EMTPY  (16)
 
 struct npu_buf_info {
-	char *buffer;
-	unsigned int size;
+	int in_fd;
+	int out_fd;
+};
+
+struct npu_net_req {
+	int cmd_size;
+	int wei_size;
+	char *cmd_data;
+	char *wei_data;
 };
 
 #define NPU_IOCTL_MAGIC	  'k'
 
-#define NPU_IOCTL_RUN		   _IO(NPU_IOCTL_MAGIC, 0)
-#define NPU_IOCTL_SET_CMD_BUF	   _IOW(NPU_IOCTL_MAGIC, 1, struct npu_buf_info)
-#define NPU_IOCTL_SET_WEIGHT_BUF	\
-			_IOW(NPU_IOCTL_MAGIC, 2, struct npu_buf_info)
+#define NPU_IOCTL_BUFFER_CREATE		_IOW(NPU_IOCTL_MAGIC, 0, int)
+#define NPU_IOCTL_NETWORK_CREATE  	_IOW(NPU_IOCTL_MAGIC, 1, struct npu_net_req)
+#define NPU_IOCTL_RUN_INFERENCE		_IOW(NPU_IOCTL_MAGIC, 2, struct npu_buf_info)
+#define NPU_IOCTL_WORK_BUFFER_CREATE	_IOW(NPU_IOCTL_MAGIC, 3, int)
+#define NPU_IOCTL_GET_WORK_BUFFER_SIZE	_IO(NPU_IOCTL_MAGIC, 4)
+#define NPU_IOCTL_STOP_NPU		_IO(NPU_IOCTL_MAGIC, 5) 
 
-#define NPU_IOCTL_MAX		3
+#define NPU_IOCTL_MAX		10
 
 #endif /*_NPU_H */
