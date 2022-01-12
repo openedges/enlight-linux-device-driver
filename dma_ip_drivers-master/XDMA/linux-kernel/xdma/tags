@@ -1,0 +1,784 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACCESS_OK_2_ARGS	libxdma.h	37;"	d	language:C++
+ACCESS_OK_2_ARGS	libxdma.h	39;"	d	language:C++
+BLOCK_ID_HEAD	libxdma.h	195;"	d	language:C++
+BLOCK_ID_MASK	libxdma.h	194;"	d	language:C++
+BUILDSYSTEM_DIR	Makefile	/^	BUILDSYSTEM_DIR:=\/lib\/modules\/$(shell uname -r)\/build$/;"	m	language:Make
+BYPASS_MODE_SPACING	libxdma.h	218;"	d	language:C++
+C2H_WB	libxdma.h	210;"	d	language:C++
+CAP_64BIT_DESC	libxdma.h	/^	CAP_64BIT_DESC = 4,$/;"	e	language:C++	enum:dev_capabilities
+CAP_64BIT_DMA	libxdma.h	/^	CAP_64BIT_DMA = 2,$/;"	e	language:C++	enum:dev_capabilities
+CAP_ENGINE_READ	libxdma.h	/^	CAP_ENGINE_READ = 16$/;"	e	language:C++	enum:dev_capabilities
+CAP_ENGINE_WRITE	libxdma.h	/^	CAP_ENGINE_WRITE = 8,$/;"	e	language:C++	enum:dev_capabilities
+CHANNEL_SPACING	libxdma.h	215;"	d	language:C++
+CHAR_BYPASS	xdma_cdev.c	/^	CHAR_BYPASS,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_BYPASS_C2H	xdma_cdev.c	/^	CHAR_BYPASS_C2H,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_BYPASS_H2C	xdma_cdev.c	/^	CHAR_BYPASS_H2C,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_CTRL	xdma_cdev.c	/^	CHAR_CTRL,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_EVENTS	xdma_cdev.c	/^	CHAR_EVENTS,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_USER	xdma_cdev.c	/^	CHAR_USER,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_XDMA_C2H	xdma_cdev.c	/^	CHAR_XDMA_C2H,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_XDMA_H2C	xdma_cdev.c	/^	CHAR_XDMA_H2C,$/;"	e	language:C	enum:cdev_type	file:
+CHAR_XVC	xdma_cdev.c	/^	CHAR_XVC,$/;"	e	language:C	enum:cdev_type	file:
+COMPLETION_LOOP_MAX	cdev_xvc.c	25;"	d	language:C	file:
+CONFIG_BLOCK_ID	libxdma.h	198;"	d	language:C++
+CYCLIC_RX_PAGES_MAX	libxdma.h	190;"	d	language:C++
+DESC_MAGIC	libxdma.h	208;"	d	language:C++
+DRV_MODULE_DESC	xdma_mod.c	/^MODULE_DESCRIPTION(DRV_MODULE_DESC);$/;"	v	language:C
+DRV_MODULE_DESC	xdma_mod.c	34;"	d	language:C	file:
+DRV_MODULE_NAME	xdma_mod.c	33;"	d	language:C	file:
+DRV_MODULE_VERSION	version.h	27;"	d	language:C++
+DRV_MODULE_VERSION	xdma_mod.c	/^MODULE_VERSION(DRV_MODULE_VERSION);$/;"	v	language:C
+DRV_MOD_MAJOR	version.h	23;"	d	language:C++
+DRV_MOD_MINOR	version.h	24;"	d	language:C++
+DRV_MOD_PATCHLEVEL	version.h	25;"	d	language:C++
+DRV_MOD_VERSION_NUMBER	version.h	32;"	d	language:C++
+ENGINE_SHUTDOWN_IDLE	libxdma.h	/^	ENGINE_SHUTDOWN_IDLE = 2	\/* engine has shutdown and is idle *\/$/;"	e	language:C++	enum:shutdown_state
+ENGINE_SHUTDOWN_NONE	libxdma.h	/^	ENGINE_SHUTDOWN_NONE = 0,	\/* No shutdown in progress *\/$/;"	e	language:C++	enum:shutdown_state
+ENGINE_SHUTDOWN_REQUEST	libxdma.h	/^	ENGINE_SHUTDOWN_REQUEST = 1,	\/* engine requested to shutdown *\/$/;"	e	language:C++	enum:shutdown_state
+EXTRA_CFLAGS	Makefile	/^EXTRA_CFLAGS := -I$(topdir)\/include $(XVC_FLAGS)$/;"	m	language:Make
+H2C_CHANNEL_OFFSET	libxdma.h	213;"	d	language:C++
+HAS_MMIOWB	libxdma.h	43;"	d	language:C++
+HAS_MMIOWB	libxdma.h	45;"	d	language:C++
+HAS_SWAKE_UP	libxdma.h	50;"	d	language:C++
+HAS_SWAKE_UP	libxdma.h	53;"	d	language:C++
+HAS_SWAKE_UP_ONE	libxdma.h	49;"	d	language:C++
+HAS_SWAKE_UP_ONE	libxdma.h	52;"	d	language:C++
+IOCTL_XDMA_ADDRMODE_GET	cdev_ctrl.h	84;"	d	language:C++
+IOCTL_XDMA_ADDRMODE_GET	cdev_sgdma.h	69;"	d	language:C++
+IOCTL_XDMA_ADDRMODE_SET	cdev_ctrl.h	83;"	d	language:C++
+IOCTL_XDMA_ADDRMODE_SET	cdev_sgdma.h	68;"	d	language:C++
+IOCTL_XDMA_ALIGN_GET	cdev_ctrl.h	85;"	d	language:C++
+IOCTL_XDMA_ALIGN_GET	cdev_sgdma.h	70;"	d	language:C++
+IOCTL_XDMA_PERF_GET	cdev_sgdma.h	67;"	d	language:C++
+IOCTL_XDMA_PERF_START	cdev_sgdma.h	65;"	d	language:C++
+IOCTL_XDMA_PERF_STOP	cdev_sgdma.h	66;"	d	language:C++
+IOCTL_XDMA_PERF_V1	cdev_sgdma.h	26;"	d	language:C++
+IRQ_BLOCK_ID	libxdma.h	197;"	d	language:C++
+LS_BYTE_MASK	libxdma.h	192;"	d	language:C++
+MAGIC_BITSTREAM	xdma_mod.h	55;"	d	language:C++
+MAGIC_CHAR	xdma_mod.h	54;"	d	language:C++
+MAGIC_DEVICE	libxdma.h	183;"	d	language:C++
+MAGIC_DEVICE	xdma_mod.h	53;"	d	language:C++
+MAGIC_ENGINE	libxdma.h	182;"	d	language:C++
+MAGIC_ENGINE	xdma_mod.h	52;"	d	language:C++
+MAX_DESC_BUS_ADDR	libxdma.h	206;"	d	language:C++
+MAX_NUM_ENGINES	libxdma.h	212;"	d	language:C++
+MAX_USER_IRQ	libxdma.h	204;"	d	language:C++
+NUM_POLLS_PER_SCHED	libxdma.h	76;"	d	language:C++
+PCI_DMA_H	libxdma.h	221;"	d	language:C++
+PCI_DMA_L	libxdma.h	223;"	d	language:C++
+POLL_TIMEOUT_SECONDS	libxdma.h	202;"	d	language:C++
+PWD	Makefile	/^	PWD:=$(shell pwd)$/;"	m	language:Make
+RX_STATUS_EOP	libxdma.h	86;"	d	language:C++
+SGDMA_OFFSET_FROM_CHANNEL	libxdma.h	214;"	d	language:C++
+SHELL	Makefile	/^SHELL = \/bin\/bash$/;"	m	language:Make
+TARGET_MODULE	Makefile	/^TARGET_MODULE:=xdma$/;"	m	language:Make
+TARGET_SPACING	libxdma.h	216;"	d	language:C++
+TRANSFER_STATE_ABORTED	libxdma.h	/^	TRANSFER_STATE_ABORTED$/;"	e	language:C++	enum:transfer_state
+TRANSFER_STATE_COMPLETED	libxdma.h	/^	TRANSFER_STATE_COMPLETED,$/;"	e	language:C++	enum:transfer_state
+TRANSFER_STATE_FAILED	libxdma.h	/^	TRANSFER_STATE_FAILED,$/;"	e	language:C++	enum:transfer_state
+TRANSFER_STATE_NEW	libxdma.h	/^	TRANSFER_STATE_NEW = 0,$/;"	e	language:C++	enum:transfer_state
+TRANSFER_STATE_SUBMITTED	libxdma.h	/^	TRANSFER_STATE_SUBMITTED,$/;"	e	language:C++	enum:transfer_state
+VMEM_FLAGS	libxdma.h	226;"	d	language:C++
+VMEM_FLAGS	libxdma.h	228;"	d	language:C++
+WB_COUNT_MASK	libxdma.h	200;"	d	language:C++
+WB_ERR_MASK	libxdma.h	201;"	d	language:C++
+XDEV_FLAG_OFFLINE	libxdma.h	570;"	d	language:C++
+XDF_CDEV_BYPASS	xdma_cdev.c	/^	XDF_CDEV_BYPASS,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDF_CDEV_CTRL	xdma_cdev.c	/^	XDF_CDEV_CTRL,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDF_CDEV_EVENT	xdma_cdev.c	/^	XDF_CDEV_EVENT,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDF_CDEV_SG	xdma_cdev.c	/^	XDF_CDEV_SG,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDF_CDEV_USER	xdma_cdev.c	/^	XDF_CDEV_USER,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDF_CDEV_XVC	xdma_cdev.c	/^	XDF_CDEV_XVC,$/;"	e	language:C	enum:xpdev_flags_bits	file:
+XDMA_ADDRMODE_FIXED	cdev_sgdma.h	28;"	d	language:C++
+XDMA_ADDRMODE_MEMORY	cdev_sgdma.h	27;"	d	language:C++
+XDMA_BAR_NUM	libxdma.h	70;"	d	language:C++
+XDMA_BAR_SIZE	libxdma.h	73;"	d	language:C++
+XDMA_CHANNEL_NUM_MAX	libxdma.h	78;"	d	language:C++
+XDMA_CTRL_IE_DESC_ALIGN_MISMATCH	libxdma.h	104;"	d	language:C++
+XDMA_CTRL_IE_DESC_COMPLETED	libxdma.h	103;"	d	language:C++
+XDMA_CTRL_IE_DESC_ERROR	libxdma.h	108;"	d	language:C++
+XDMA_CTRL_IE_DESC_STOPPED	libxdma.h	102;"	d	language:C++
+XDMA_CTRL_IE_IDLE_STOPPED	libxdma.h	106;"	d	language:C++
+XDMA_CTRL_IE_MAGIC_STOPPED	libxdma.h	105;"	d	language:C++
+XDMA_CTRL_IE_READ_ERROR	libxdma.h	107;"	d	language:C++
+XDMA_CTRL_NON_INCR_ADDR	libxdma.h	109;"	d	language:C++
+XDMA_CTRL_POLL_MODE_WB	libxdma.h	110;"	d	language:C++
+XDMA_CTRL_RUN_STOP	libxdma.h	101;"	d	language:C++
+XDMA_CTRL_STM_MODE_WB	libxdma.h	111;"	d	language:C++
+XDMA_DEBUG	libxdma.h	67;"	d	language:C++
+XDMA_DESC_BLEN_BITS	libxdma.h	97;"	d	language:C++
+XDMA_DESC_BLEN_MAX	libxdma.h	98;"	d	language:C++
+XDMA_DESC_COMPLETED	libxdma.h	175;"	d	language:C++
+XDMA_DESC_EOP	libxdma.h	176;"	d	language:C++
+XDMA_DESC_STOPPED	libxdma.h	174;"	d	language:C++
+XDMA_ENGINE_CREDIT_XFER_MAX_DESC	libxdma.h	94;"	d	language:C++
+XDMA_ENGINE_XFER_MAX_DESC	libxdma.h	93;"	d	language:C++
+XDMA_ENG_IRQ_NUM	libxdma.h	83;"	d	language:C++
+XDMA_ID_C2H	libxdma.h	187;"	d	language:C++
+XDMA_ID_H2C	libxdma.h	186;"	d	language:C++
+XDMA_IOCINFO	cdev_ctrl.h	78;"	d	language:C++
+XDMA_IOCOFFLINE	cdev_ctrl.h	80;"	d	language:C++
+XDMA_IOCONLINE	cdev_ctrl.h	81;"	d	language:C++
+XDMA_IOCXVC	cdev_xvc.h	40;"	d	language:C++
+XDMA_IOC_INFO	cdev_ctrl.h	/^	XDMA_IOC_INFO,$/;"	e	language:C++	enum:XDMA_IOC_TYPES
+XDMA_IOC_MAGIC	cdev_ctrl.h	26;"	d	language:C++
+XDMA_IOC_MAX	cdev_ctrl.h	/^	XDMA_IOC_MAX$/;"	e	language:C++	enum:XDMA_IOC_TYPES
+XDMA_IOC_NOP	cdev_ctrl.h	/^	XDMA_IOC_NOP,$/;"	e	language:C++	enum:XDMA_IOC_TYPES
+XDMA_IOC_OFFLINE	cdev_ctrl.h	/^	XDMA_IOC_OFFLINE,$/;"	e	language:C++	enum:XDMA_IOC_TYPES
+XDMA_IOC_ONLINE	cdev_ctrl.h	/^	XDMA_IOC_ONLINE,$/;"	e	language:C++	enum:XDMA_IOC_TYPES
+XDMA_IOC_TYPES	cdev_ctrl.h	/^enum XDMA_IOC_TYPES {$/;"	g	language:C++
+XDMA_LIB_H	libxdma.h	21;"	d	language:C++
+XDMA_MAX_ADJ_BLOCK_SIZE	libxdma.h	84;"	d	language:C++
+XDMA_MINOR_BASE	xdma_cdev.h	30;"	d	language:C++
+XDMA_MINOR_COUNT	xdma_cdev.h	31;"	d	language:C++
+XDMA_NODE_NAME	xdma_cdev.h	29;"	d	language:C++
+XDMA_OFS_CONFIG	libxdma.h	90;"	d	language:C++
+XDMA_OFS_INT_CTRL	libxdma.h	89;"	d	language:C++
+XDMA_PAGE_SIZE	libxdma.h	85;"	d	language:C++
+XDMA_PERF_AUTO	libxdma.h	180;"	d	language:C++
+XDMA_PERF_CLEAR	libxdma.h	179;"	d	language:C++
+XDMA_PERF_NUM_DESC	libxdma.c	55;"	d	language:C	file:
+XDMA_PERF_RUN	libxdma.h	178;"	d	language:C++
+XDMA_STAT_ALIGN_MISMATCH	libxdma.h	117;"	d	language:C++
+XDMA_STAT_BUSY	libxdma.h	114;"	d	language:C++
+XDMA_STAT_C2H_ERR_MASK	libxdma.h	169;"	d	language:C++
+XDMA_STAT_C2H_R_DECODE_ERR	libxdma.h	158;"	d	language:C++
+XDMA_STAT_C2H_R_ERR_MASK	libxdma.h	161;"	d	language:C++
+XDMA_STAT_C2H_R_SLAVE_ERR	libxdma.h	159;"	d	language:C++
+XDMA_STAT_COMMON_ERR_MASK	libxdma.h	122;"	d	language:C++
+XDMA_STAT_DESC_COMPLETED	libxdma.h	116;"	d	language:C++
+XDMA_STAT_DESC_COMPL_ABORT	libxdma.h	128;"	d	language:C++
+XDMA_STAT_DESC_ERR_MASK	libxdma.h	133;"	d	language:C++
+XDMA_STAT_DESC_HEADER_EP	libxdma.h	130;"	d	language:C++
+XDMA_STAT_DESC_PARITY_ERR	libxdma.h	129;"	d	language:C++
+XDMA_STAT_DESC_STOPPED	libxdma.h	115;"	d	language:C++
+XDMA_STAT_DESC_UNEXP_COMPL	libxdma.h	131;"	d	language:C++
+XDMA_STAT_DESC_UNSUPP_REQ	libxdma.h	127;"	d	language:C++
+XDMA_STAT_H2C_ERR_MASK	libxdma.h	165;"	d	language:C++
+XDMA_STAT_H2C_R_COMPL_ABORT	libxdma.h	140;"	d	language:C++
+XDMA_STAT_H2C_R_ERR_MASK	libxdma.h	145;"	d	language:C++
+XDMA_STAT_H2C_R_HEADER_EP	libxdma.h	142;"	d	language:C++
+XDMA_STAT_H2C_R_PARITY_ERR	libxdma.h	141;"	d	language:C++
+XDMA_STAT_H2C_R_UNEXP_COMPL	libxdma.h	143;"	d	language:C++
+XDMA_STAT_H2C_R_UNSUPP_REQ	libxdma.h	139;"	d	language:C++
+XDMA_STAT_H2C_W_DECODE_ERR	libxdma.h	151;"	d	language:C++
+XDMA_STAT_H2C_W_ERR_MASK	libxdma.h	154;"	d	language:C++
+XDMA_STAT_H2C_W_SLAVE_ERR	libxdma.h	152;"	d	language:C++
+XDMA_STAT_IDLE_STOPPED	libxdma.h	120;"	d	language:C++
+XDMA_STAT_INVALID_LEN	libxdma.h	119;"	d	language:C++
+XDMA_STAT_MAGIC_STOPPED	libxdma.h	118;"	d	language:C++
+XDMA_XCL_MAGIC	cdev_ctrl.h	28;"	d	language:C++
+XFER_FLAG_NEED_UNMAP	libxdma.h	435;"	d	language:C++
+XFER_FLAG_ST_C2H_EOP_RCVED	libxdma.h	436;"	d	language:C++
+XVC_BAR_CTRL_REG	cdev_xvc.c	31;"	d	language:C	file:
+XVC_BAR_LENGTH_REG	cdev_xvc.c	27;"	d	language:C	file:
+XVC_BAR_OFFSET_DFLT	cdev_xvc.h	28;"	d	language:C++
+XVC_BAR_TDI_REG	cdev_xvc.c	29;"	d	language:C	file:
+XVC_BAR_TDO_REG	cdev_xvc.c	30;"	d	language:C	file:
+XVC_BAR_TMS_REG	cdev_xvc.c	28;"	d	language:C	file:
+XVC_MAGIC	cdev_xvc.h	30;"	d	language:C++
+_XDMA_IOCALLS_POSIX_H_	cdev_ctrl.h	21;"	d	language:C++
+_XDMA_IOCALLS_POSIX_H_	cdev_sgdma.h	21;"	d	language:C++
+__XDMA_CHRDEV_H__	xdma_cdev.h	21;"	d	language:C++
+__XDMA_KTHREAD_H__	xdma_thread.h	21;"	d	language:C++
+__XDMA_MODULE_H__	xdma_mod.h	21;"	d	language:C++
+__XDMA_VERSION_H__	version.h	21;"	d	language:C++
+__XVC_IOCTL_H__	cdev_xvc.h	21;"	d	language:C++
+__cached_gcc_-print-file-name_include	.cache.mk	/^__cached_gcc_-print-file-name_include := \/usr\/lib\/gcc\/x86_64-linux-gnu\/5\/include$/;"	m	language:Make
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:engine_regs
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:engine_sgdma_regs
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:interrupt_regs
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:msix_vec_table
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:msix_vec_table_entry
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:sgdma_common_regs
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:xdma_desc
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:xdma_poll_wb
+__packed	libxdma.h	/^} __packed;$/;"	v	language:C++	typeref:struct:xdma_result
+__read_register	cdev_xvc.c	/^inline u32 __read_register(const char *fn, void __iomem *base, unsigned int off)$/;"	f	language:C
+__this_module	xdma.mod.c	/^__visible struct module __this_module$/;"	v	language:C	typeref:struct:module
+__used	xdma.mod.c	/^__used$/;"	v	language:C	file:
+__write_register	cdev_xvc.c	/^inline void __write_register(const char *fn, u32 value, void __iomem *base,$/;"	f	language:C
+__write_register	libxdma.c	/^inline void __write_register(const char *fn, u32 value, void *iomem,$/;"	f	language:C
+addr	libxdma.h	/^	dma_addr_t addr;$/;"	m	language:C++	struct:sw_desc
+addr_align	libxdma.h	/^	u8 addr_align;		\/* source\/dest alignment in bytes *\/$/;"	m	language:C++	struct:xdma_engine
+addr_bits	libxdma.h	/^	u8 addr_bits;		\/* HW datapath address width *\/$/;"	m	language:C++	struct:xdma_engine
+alignments	libxdma.h	/^	u32 alignments;$/;"	m	language:C++	struct:engine_regs
+alloc_dev_instance	libxdma.c	/^static struct xdma_dev *alloc_dev_instance(struct pci_dev *pdev)$/;"	f	language:C	file:
+arch_msi_check_device	libxdma.c	/^static int arch_msi_check_device(struct pci_dev *dev, int nvec, int type)$/;"	f	language:C	file:
+async_io_handler	cdev_sgdma.c	/^static void async_io_handler(unsigned long  cb_hndl, int err)$/;"	f	language:C	file:
+bar	libxdma.h	/^	void __iomem *bar[XDMA_BAR_NUM];	\/* addresses for mapped BARs *\/$/;"	m	language:C++	struct:xdma_dev
+bar	xdma_mod.h	/^	int bar;			\/* PCIe BAR for HW access, if needed *\/$/;"	m	language:C++	struct:xdma_cdev
+base	cdev_ctrl.h	/^	struct xdma_ioc_base	base;$/;"	m	language:C++	struct:xdma_ioc_info	typeref:struct:xdma_ioc_info::xdma_ioc_base
+base	xdma_mod.h	/^	unsigned long base;		\/* bar access offset *\/$/;"	m	language:C++	struct:xdma_cdev
+bridge_mmap	cdev_ctrl.c	/^int bridge_mmap(struct file *file, struct vm_area_struct *vma)$/;"	f	language:C
+buf	libxdma.h	/^	void __user *buf;$/;"	m	language:C++	struct:xdma_io_cb
+build_u32	libxdma.c	/^static inline u32 build_u32(u32 hi, u32 lo)$/;"	f	language:C	file:
+build_u64	libxdma.c	/^static inline u64 build_u64(u64 hi, u64 lo)$/;"	f	language:C	file:
+bus	cdev_ctrl.h	/^	unsigned char		bus;$/;"	m	language:C++	struct:xdma_ioc_info
+bypass_bar_idx	libxdma.h	/^	int bypass_bar_idx;	\/* BAR index of XDMA bypass logic *\/$/;"	m	language:C++	struct:xdma_dev
+bypass_c2h_cdev	xdma_mod.h	/^	struct xdma_cdev bypass_c2h_cdev[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+bypass_cdev_base	xdma_mod.h	/^	struct xdma_cdev bypass_cdev_base;$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+bypass_fops	cdev_bypass.c	/^static const struct file_operations bypass_fops = {$/;"	v	language:C	typeref:struct:file_operations	file:
+bypass_h2c_cdev	xdma_mod.h	/^	struct xdma_cdev bypass_h2c_cdev[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+bypass_offset	libxdma.h	/^	u32 bypass_offset;			\/* Bypass mode BAR offset *\/$/;"	m	language:C++	struct:xdma_engine
+bytes	libxdma.h	/^	u32 bytes;		\/* transfer length in bytes *\/$/;"	m	language:C++	struct:xdma_desc
+c2h_channel_max	libxdma.h	/^	int c2h_channel_max;$/;"	m	language:C++	struct:xdma_dev
+c2h_channel_max	xdma_mod.h	/^	int c2h_channel_max;$/;"	m	language:C++	struct:xdma_pci_dev
+c2h_timeout	cdev_sgdma.c	/^unsigned int c2h_timeout = 10;$/;"	v	language:C
+cancel	xdma_mod.h	/^	bool cancel;$/;"	m	language:C++	struct:cdev_async_io
+capabilities	libxdma.h	/^	enum dev_capabilities capabilities;$/;"	m	language:C++	struct:xdma_dev	typeref:enum:xdma_dev::dev_capabilities
+cb	libxdma.h	/^	struct xdma_io_cb *cb;$/;"	m	language:C++	struct:xdma_request_cb	typeref:struct:xdma_request_cb::xdma_io_cb
+cb	libxdma.h	/^	struct xdma_io_cb *cb;$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::xdma_io_cb
+cb	xdma_mod.h	/^	struct xdma_io_cb *cb;$/;"	m	language:C++	struct:cdev_async_io	typeref:struct:cdev_async_io::xdma_io_cb
+cdev	xdma_mod.h	/^	struct cdev cdev;		\/* character device embedded struct *\/$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::cdev
+cdev_aio_read	cdev_sgdma.c	/^static ssize_t cdev_aio_read(struct kiocb *iocb, const struct iovec *io,$/;"	f	language:C	file:
+cdev_aio_write	cdev_sgdma.c	/^static ssize_t cdev_aio_write(struct kiocb *iocb, const struct iovec *io,$/;"	f	language:C	file:
+cdev_async_io	xdma_mod.h	/^struct cdev_async_io {$/;"	s	language:C++
+cdev_bypass_init	cdev_bypass.c	/^void cdev_bypass_init(struct xdma_cdev *xcdev)$/;"	f	language:C
+cdev_cache	xdma_cdev.c	/^struct kmem_cache *cdev_cache;$/;"	v	language:C	typeref:struct:kmem_cache
+cdev_ctrl_init	cdev_ctrl.c	/^void cdev_ctrl_init(struct xdma_cdev *xcdev)$/;"	f	language:C
+cdev_event_init	cdev_events.c	/^void cdev_event_init(struct xdma_cdev *xcdev)$/;"	f	language:C
+cdev_read_iter	cdev_sgdma.c	/^static ssize_t cdev_read_iter(struct kiocb *iocb, struct iov_iter *io)$/;"	f	language:C	file:
+cdev_sgdma_init	cdev_sgdma.c	/^void cdev_sgdma_init(struct xdma_cdev *xcdev)$/;"	f	language:C
+cdev_type	xdma_cdev.c	/^enum cdev_type {$/;"	g	language:C	file:
+cdev_write_iter	cdev_sgdma.c	/^static ssize_t cdev_write_iter(struct kiocb *iocb, struct iov_iter *io)$/;"	f	language:C	file:
+cdev_xvc_init	cdev_xvc.c	/^void cdev_xvc_init(struct xdma_cdev *xcdev)$/;"	f	language:C
+cdevno	xdma_mod.h	/^	dev_t cdevno;			\/* character device major:minor *\/$/;"	m	language:C++	struct:xdma_cdev
+channel	libxdma.h	/^	u8 channel:2;		\/* engine indices *\/$/;"	m	language:C++	struct:xdma_engine
+channel_int_enable	libxdma.h	/^	u32 channel_int_enable;$/;"	m	language:C++	struct:interrupt_regs
+channel_int_enable_w1c	libxdma.h	/^	u32 channel_int_enable_w1c;$/;"	m	language:C++	struct:interrupt_regs
+channel_int_enable_w1s	libxdma.h	/^	u32 channel_int_enable_w1s;$/;"	m	language:C++	struct:interrupt_regs
+channel_int_pending	libxdma.h	/^	u32 channel_int_pending;$/;"	m	language:C++	struct:interrupt_regs
+channel_int_request	libxdma.h	/^	u32 channel_int_request;$/;"	m	language:C++	struct:interrupt_regs
+channel_interrupts_disable	libxdma.c	/^static void channel_interrupts_disable(struct xdma_dev *xdev, u32 mask)$/;"	f	language:C	file:
+channel_interrupts_enable	libxdma.c	/^static void channel_interrupts_enable(struct xdma_dev *xdev, u32 mask)$/;"	f	language:C	file:
+channel_msi_vector	libxdma.h	/^	u32 channel_msi_vector[8];$/;"	m	language:C++	struct:interrupt_regs
+char_bypass_read	cdev_bypass.c	/^static ssize_t char_bypass_read(struct file *file, char __user *buf,$/;"	f	language:C	file:
+char_bypass_write	cdev_bypass.c	/^static ssize_t char_bypass_write(struct file *file, const char __user *buf,$/;"	f	language:C	file:
+char_close	xdma_cdev.c	/^int char_close(struct inode *inode, struct file *file)$/;"	f	language:C
+char_ctrl_ioctl	cdev_ctrl.c	/^long char_ctrl_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	language:C
+char_ctrl_read	cdev_ctrl.c	/^static ssize_t char_ctrl_read(struct file *fp, char __user *buf, size_t count,$/;"	f	language:C	file:
+char_ctrl_write	cdev_ctrl.c	/^static ssize_t char_ctrl_write(struct file *file, const char __user *buf,$/;"	f	language:C	file:
+char_events_poll	cdev_events.c	/^static unsigned int char_events_poll(struct file *file, poll_table *wait)$/;"	f	language:C	file:
+char_events_read	cdev_events.c	/^static ssize_t char_events_read(struct file *file, char __user *buf,$/;"	f	language:C	file:
+char_open	xdma_cdev.c	/^int char_open(struct inode *inode, struct file *file)$/;"	f	language:C
+char_sgdma_close	cdev_sgdma.c	/^static int char_sgdma_close(struct inode *inode, struct file *file)$/;"	f	language:C	file:
+char_sgdma_ioctl	cdev_sgdma.c	/^static long char_sgdma_ioctl(struct file *file, unsigned int cmd,$/;"	f	language:C	file:
+char_sgdma_llseek	cdev_sgdma.c	/^static loff_t char_sgdma_llseek(struct file *file, loff_t off, int whence)$/;"	f	language:C	file:
+char_sgdma_map_user_buf_to_sgl	cdev_sgdma.c	/^static int char_sgdma_map_user_buf_to_sgl(struct xdma_io_cb *cb, bool write)$/;"	f	language:C	file:
+char_sgdma_open	cdev_sgdma.c	/^static int char_sgdma_open(struct inode *inode, struct file *file)$/;"	f	language:C	file:
+char_sgdma_read	cdev_sgdma.c	/^static ssize_t char_sgdma_read(struct file *file, char __user *buf,$/;"	f	language:C	file:
+char_sgdma_read_write	cdev_sgdma.c	/^static ssize_t char_sgdma_read_write(struct file *file, const char __user *buf,$/;"	f	language:C	file:
+char_sgdma_unmap_user_buf	cdev_sgdma.c	/^static void char_sgdma_unmap_user_buf(struct xdma_io_cb *cb, bool write)$/;"	f	language:C	file:
+char_sgdma_write	cdev_sgdma.c	/^static ssize_t char_sgdma_write(struct file *file, const char __user *buf,$/;"	f	language:C	file:
+check_nonzero_interrupt_status	libxdma.c	/^static void check_nonzero_interrupt_status(struct xdma_dev *xdev)$/;"	f	language:C	file:
+check_transfer_align	cdev_sgdma.c	/^static int check_transfer_align(struct xdma_engine *engine,$/;"	f	language:C	file:
+clock_cycle_count	cdev_sgdma.h	/^	uint64_t clock_cycle_count;$/;"	m	language:C++	struct:xdma_performance_ioctl
+cmpl_cnt	xdma_mod.h	/^	int cmpl_cnt;$/;"	m	language:C++	struct:cdev_async_io
+cmplthp	libxdma.h	/^	struct xdma_kthread *cmplthp;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::xdma_kthread
+cmplthp_list	libxdma.h	/^	struct list_head cmplthp_list;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::list_head
+command	cdev_ctrl.h	/^	unsigned int command;$/;"	m	language:C++	struct:xdma_ioc_base
+completed_desc_count	libxdma.h	/^	u32 completed_desc_count;$/;"	m	language:C++	struct:engine_regs
+completed_desc_count	libxdma.h	/^	u32 completed_desc_count;$/;"	m	language:C++	struct:xdma_poll_wb
+config_bar_idx	libxdma.h	/^	int config_bar_idx;	\/* BAR index of XDMA config logic *\/$/;"	m	language:C++	struct:xdma_dev
+config_kobject	xdma_cdev.c	/^static int config_kobject(struct xdma_cdev *xcdev, enum cdev_type type)$/;"	f	language:C	file:
+config_regs	libxdma.h	/^struct config_regs {$/;"	s	language:C++
+control	libxdma.h	/^	u32 control;$/;"	m	language:C++	struct:engine_regs
+control	libxdma.h	/^	u32 control;$/;"	m	language:C++	struct:xdma_desc
+control_w1c	libxdma.h	/^	u32 control_w1c;$/;"	m	language:C++	struct:engine_regs
+control_w1s	libxdma.h	/^	u32 control_w1s;$/;"	m	language:C++	struct:engine_regs
+copy_desc_data	cdev_bypass.c	/^static int copy_desc_data(struct xdma_transfer *transfer, char __user *buf,$/;"	f	language:C	file:
+count	libxdma.h	/^	unsigned int count;$/;"	m	language:C++	struct:xdma_io_cb
+cpu	xdma_thread.h	/^	unsigned short cpu;$/;"	m	language:C++	struct:xdma_kthread
+create_sys_device	xdma_cdev.c	/^static int create_sys_device(struct xdma_cdev *xcdev, enum cdev_type type)$/;"	f	language:C	file:
+create_xcdev	xdma_cdev.c	/^static int create_xcdev(struct xdma_pci_dev *xpdev, struct xdma_cdev *xcdev,$/;"	f	language:C	file:
+credit_mode_enable	libxdma.h	/^	u32 credit_mode_enable;$/;"	m	language:C++	struct:sgdma_common_regs
+credit_mode_enable_w1c	libxdma.h	/^	u32 credit_mode_enable_w1c;$/;"	m	language:C++	struct:sgdma_common_regs
+credit_mode_enable_w1s	libxdma.h	/^	u32 credit_mode_enable_w1s;$/;"	m	language:C++	struct:sgdma_common_regs
+credits	libxdma.h	/^	u32 credits;$/;"	m	language:C++	struct:engine_sgdma_regs
+cs_threads	xdma_thread.c	/^static struct xdma_kthread *cs_threads;$/;"	v	language:C	typeref:struct:xdma_kthread	file:
+ctrl_cdev	xdma_mod.h	/^	struct xdma_cdev ctrl_cdev;$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+ctrl_fops	cdev_ctrl.c	/^static const struct file_operations ctrl_fops = {$/;"	v	language:C	typeref:struct:file_operations	file:
+cyclic	libxdma.h	/^	int cyclic;			\/* flag if transfer is cyclic *\/$/;"	m	language:C++	struct:xdma_transfer
+cyclic_result	libxdma.h	/^	struct xdma_result *cyclic_result;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::xdma_result
+cyclic_result_bus	libxdma.h	/^	dma_addr_t cyclic_result_bus;	\/* bus addr for transfer *\/$/;"	m	language:C++	struct:xdma_engine
+data	xdma_mod.h	/^	void *data;$/;"	m	language:C++	struct:xdma_pci_dev
+data_cycle_count	cdev_sgdma.h	/^	uint64_t data_cycle_count;$/;"	m	language:C++	struct:xdma_performance_ioctl
+dbg_desc	libxdma.h	239;"	d	language:C++
+dbg_desc	libxdma.h	249;"	d	language:C++
+dbg_fops	libxdma.h	233;"	d	language:C++
+dbg_fops	libxdma.h	243;"	d	language:C++
+dbg_init	libxdma.h	238;"	d	language:C++
+dbg_init	libxdma.h	248;"	d	language:C++
+dbg_io	libxdma.h	232;"	d	language:C++
+dbg_io	libxdma.h	242;"	d	language:C++
+dbg_irq	libxdma.h	237;"	d	language:C++
+dbg_irq	libxdma.h	247;"	d	language:C++
+dbg_perf	libxdma.h	234;"	d	language:C++
+dbg_perf	libxdma.h	244;"	d	language:C++
+dbg_sg	libxdma.h	235;"	d	language:C++
+dbg_sg	libxdma.h	245;"	d	language:C++
+dbg_tfr	libxdma.h	236;"	d	language:C++
+dbg_tfr	libxdma.h	246;"	d	language:C++
+debug_check_dev_hndl	libxdma.c	/^static inline int debug_check_dev_hndl(const char *fname, struct pci_dev *pdev,$/;"	f	language:C	file:
+desc	libxdma.h	/^	struct xdma_desc *desc;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::xdma_desc
+desc_adjacent	libxdma.h	/^	int desc_adjacent;		\/* adjacent descriptors at desc_bus *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_blen_max	libxdma.c	/^unsigned int desc_blen_max = XDMA_DESC_BLEN_MAX;$/;"	v	language:C
+desc_bus	libxdma.h	/^	dma_addr_t desc_bus;		\/* bus addr of the first descriptor *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_bus	libxdma.h	/^	dma_addr_t desc_bus;$/;"	m	language:C++	struct:xdma_engine
+desc_cmpl	libxdma.h	/^	int desc_cmpl;			\/* completed descriptors *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_cmpl_th	libxdma.h	/^	int desc_cmpl_th;		\/* completed descriptor threshold *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_dequeued	libxdma.h	/^	int desc_dequeued;	\/* num descriptors of completed transfers *\/$/;"	m	language:C++	struct:xdma_engine
+desc_idx	libxdma.h	/^	int desc_idx;			\/* current descriptor index *\/$/;"	m	language:C++	struct:xdma_engine
+desc_index	libxdma.h	/^	int desc_index;			\/* index for 1st desc. in transfer *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_lock	libxdma.h	/^	struct mutex desc_lock;		\/* protects concurrent access *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::mutex
+desc_max	libxdma.h	/^	u32 desc_max;		\/* max # descriptors per xfer *\/$/;"	m	language:C++	struct:xdma_engine
+desc_num	libxdma.h	/^	int desc_num;			\/* number of descriptors in transfer *\/$/;"	m	language:C++	struct:xdma_transfer
+desc_used	libxdma.h	/^	int desc_used;			\/* total descriptors used *\/$/;"	m	language:C++	struct:xdma_engine
+desc_virt	libxdma.h	/^	struct xdma_desc *desc_virt;	\/* virt addr of the 1st descriptor *\/$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::xdma_desc
+destroy_xcdev	xdma_cdev.c	/^static int destroy_xcdev(struct xdma_cdev *cdev)$/;"	f	language:C	file:
+dev	cdev_ctrl.h	/^	unsigned char		dev;$/;"	m	language:C++	struct:xdma_ioc_info
+dev	libxdma.h	/^	void *dev;$/;"	m	language:C++	struct:xdma_user_irq
+dev_capabilities	libxdma.h	/^enum dev_capabilities {$/;"	g	language:C++
+device	cdev_ctrl.h	/^	unsigned short		device;$/;"	m	language:C++	struct:xdma_ioc_info
+device_open	libxdma.h	/^	u8 device_open:1;	\/* flag if engine node open, ST mode only *\/$/;"	m	language:C++	struct:xdma_engine
+devnode_names	xdma_cdev.c	/^static const char * const devnode_names[] = {$/;"	v	language:C	file:
+dir	libxdma.h	/^	enum dma_data_direction dir;$/;"	m	language:C++	struct:xdma_engine	typeref:enum:xdma_engine::dma_data_direction
+dir	libxdma.h	/^	enum dma_data_direction dir;$/;"	m	language:C++	struct:xdma_transfer	typeref:enum:xdma_transfer::dma_data_direction
+disable_msi_msix	libxdma.c	/^static void disable_msi_msix(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+dma_engine_version	cdev_ctrl.h	/^	unsigned int		dma_engine_version;$/;"	m	language:C++	struct:xdma_ioc_info
+domain	cdev_ctrl.h	/^	unsigned short		domain;$/;"	m	language:C++	struct:xdma_ioc_info
+driver_version	cdev_ctrl.h	/^	unsigned int		driver_version;$/;"	m	language:C++	struct:xdma_ioc_info
+dst_addr_hi	libxdma.h	/^	u32 dst_addr_hi;	\/* destination address (high 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+dst_addr_lo	libxdma.h	/^	u32 dst_addr_lo;	\/* destination address (low 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+dump_desc	libxdma.c	/^static void dump_desc(struct xdma_desc *desc_virt)$/;"	f	language:C	file:
+enable_msi_msix	libxdma.c	/^static int enable_msi_msix(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+enable_perf	libxdma.c	/^void enable_perf(struct xdma_engine *engine)$/;"	f	language:C
+enable_st_c2h_credit	libxdma.c	/^static unsigned int enable_st_c2h_credit = 0;$/;"	v	language:C	file:
+engine	xdma_mod.h	/^	struct xdma_engine *engine;	\/* engine instance, if needed *\/$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::xdma_engine
+engine_addrmode_set	libxdma.c	/^int engine_addrmode_set(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C
+engine_alignments	libxdma.c	/^static void engine_alignments(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_alloc_resource	libxdma.c	/^static int engine_alloc_resource(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_c2h	libxdma.h	/^	struct xdma_engine engine_c2h[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::xdma_engine
+engine_cyclic_stop	libxdma.c	/^struct xdma_transfer *engine_cyclic_stop(struct xdma_engine *engine)$/;"	f	language:C
+engine_destroy	libxdma.c	/^static int engine_destroy(struct xdma_dev *xdev, struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_err_handle	libxdma.c	/^static int engine_err_handle(struct xdma_engine *engine,$/;"	f	language:C	file:
+engine_free_resource	libxdma.c	/^static void engine_free_resource(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_h2c	libxdma.h	/^	struct xdma_engine engine_h2c[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::xdma_engine
+engine_init	libxdma.c	/^static int engine_init(struct xdma_engine *engine, struct xdma_dev *xdev,$/;"	f	language:C	file:
+engine_init_regs	libxdma.c	/^static int engine_init_regs(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_reg_dump	libxdma.c	/^static int engine_reg_dump(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_regs	libxdma.h	/^struct engine_regs {$/;"	s	language:C++
+engine_service	libxdma.c	/^static int engine_service(struct xdma_engine *engine, int desc_writeback)$/;"	f	language:C	file:
+engine_service_final_transfer	libxdma.c	/^engine_service_final_transfer(struct xdma_engine *engine,$/;"	f	language:C	file:
+engine_service_perf	libxdma.c	/^static int engine_service_perf(struct xdma_engine *engine, u32 desc_completed)$/;"	f	language:C	file:
+engine_service_poll	libxdma.c	/^int engine_service_poll(struct xdma_engine *engine,$/;"	f	language:C
+engine_service_resume	libxdma.c	/^static int engine_service_resume(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_service_shutdown	libxdma.c	/^static int engine_service_shutdown(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_service_transfer_list	libxdma.c	/^engine_service_transfer_list(struct xdma_engine *engine,$/;"	f	language:C	file:
+engine_service_wb_monitor	libxdma.c	/^static u32 engine_service_wb_monitor(struct xdma_engine *engine,$/;"	f	language:C	file:
+engine_service_work	libxdma.c	/^static void engine_service_work(struct work_struct *work)$/;"	f	language:C	file:
+engine_sgdma_regs	libxdma.h	/^struct engine_sgdma_regs {$/;"	s	language:C++
+engine_start	libxdma.c	/^static struct xdma_transfer *engine_start(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_start_mode_config	libxdma.c	/^static int engine_start_mode_config(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_status_dump	libxdma.c	/^static void engine_status_dump(struct xdma_engine *engine)$/;"	f	language:C	file:
+engine_status_read	libxdma.c	/^static int engine_status_read(struct xdma_engine *engine, bool clear, bool dump)$/;"	f	language:C	file:
+engine_transfer_completion	libxdma.c	/^static struct xdma_transfer *engine_transfer_completion($/;"	f	language:C	file:
+engine_writeback_setup	libxdma.c	/^static int engine_writeback_setup(struct xdma_engine *engine)$/;"	f	language:C	file:
+engines_num	libxdma.h	/^	int engines_num;	\/* Total engine count *\/$/;"	m	language:C++	struct:xdma_dev
+entry	libxdma.h	/^	struct list_head entry;		\/* queue of non-completed transfers *\/$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::list_head
+entry	libxdma.h	/^	struct msix_entry entry[32];	\/* msi-x vector\/entry table *\/$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::msix_entry
+entry_list	libxdma.h	/^	struct msix_vec_table_entry entry_list[32];$/;"	m	language:C++	struct:msix_vec_table	typeref:struct:msix_vec_table::msix_vec_table_entry
+eop_flush	libxdma.h	/^	u8 eop_flush:1;		\/* st c2h only, flush up the data with eop *\/$/;"	m	language:C++	struct:xdma_engine
+ep_addr	libxdma.h	/^	u64 ep_addr;$/;"	m	language:C++	struct:xdma_io_cb
+ep_addr	libxdma.h	/^	u64 ep_addr;$/;"	m	language:C++	struct:xdma_request_cb
+err_cnt	xdma_mod.h	/^	int err_cnt;$/;"	m	language:C++	struct:cdev_async_io
+events_cdev	xdma_mod.h	/^	struct xdma_cdev events_cdev[16];$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+events_fops	cdev_events.c	/^static const struct file_operations events_fops = {$/;"	v	language:C	typeref:struct:file_operations	file:
+events_irq	libxdma.h	/^	u8 events_irq;			\/* accumulated IRQs *\/$/;"	m	language:C++	struct:xdma_user_irq
+events_lock	libxdma.h	/^	spinlock_t events_lock;		\/* lock to safely update events_irq *\/$/;"	m	language:C++	struct:xdma_user_irq
+events_wq	libxdma.h	/^	wait_queue_head_t events_wq;	\/* wait queue to sync waiting threads *\/$/;"	m	language:C++	struct:xdma_user_irq
+fdone	xdma_thread.h	/^	int (*fdone)(struct xdma_kthread *);$/;"	m	language:C++	struct:xdma_kthread
+feature_id	cdev_ctrl.h	/^	unsigned long long	feature_id;$/;"	m	language:C++	struct:xdma_ioc_info
+feature_id	libxdma.h	/^	u64 feature_id;$/;"	m	language:C++	struct:xdma_dev
+filler	libxdma.h	/^	u8 filler:1;$/;"	m	language:C++	struct:xdma_engine
+finit	xdma_thread.h	/^	int (*finit)(struct xdma_kthread *);$/;"	m	language:C++	struct:xdma_kthread
+first_desc_adjacent	libxdma.h	/^	u32 first_desc_adjacent;$/;"	m	language:C++	struct:engine_sgdma_regs
+first_desc_hi	libxdma.h	/^	u32 first_desc_hi;$/;"	m	language:C++	struct:engine_sgdma_regs
+first_desc_lo	libxdma.h	/^	u32 first_desc_lo;$/;"	m	language:C++	struct:engine_sgdma_regs
+flag	xdma_thread.h	/^	unsigned long flag;$/;"	m	language:C++	struct:xdma_kthread
+flags	libxdma.h	/^	unsigned int flags;$/;"	m	language:C++	struct:xdma_dev
+flags	libxdma.h	/^	unsigned int flags;$/;"	m	language:C++	struct:xdma_transfer
+flags	xdma_mod.h	/^	unsigned int flags;$/;"	m	language:C++	struct:xdma_pci_dev
+fpending	xdma_thread.h	/^	int (*fpending)(struct list_head *);$/;"	m	language:C++	struct:xdma_kthread
+fproc	xdma_thread.h	/^	int (*fproc)(struct list_head *);$/;"	m	language:C++	struct:xdma_kthread
+func	cdev_ctrl.h	/^	unsigned char		func;$/;"	m	language:C++	struct:xdma_ioc_info
+g_xdma_class	xdma_cdev.c	/^static struct class *g_xdma_class;$/;"	v	language:C	typeref:struct:class	file:
+gcc-goto.sh_gcc_-Wall_-Wundef_-Wstrict-prototypes_-Wno-trigraphs_-fno-strict-aliasing_-fno-common_-fshort-wchar_-Werror-implicit-function-declaration_-Werror_return-type_-Wno-format-security_-std_gnu89_-fno-PIE_-mno-sse_-mno-mmx_-mno-sse2_-mno-3dnow_-mno-avx_-m64_-falign-jumps_1_-falign-loops_1_-mno-80387_-mno-fp-ret-in-387_-mpreferred-stack-boundary_3_-mskip-rax-setup_-mtune_generic_-mno-red-zone_-mcmodel_kernel__-funit-at-a-time_-DCONFIG_X86_X32_ABI_-DCONFIG_AS_CFI_1_-DCONFIG_AS_CFI_SIGNAL_FRAME_1_-DCONFIG_AS_CFI_SECTIONS_1_-DCONFIG_AS_FXSAVEQ_1_-DCONFIG_AS_SSSE3_1_-DCONFIG_AS_CRC32_1_-DCONFIG_AS_AVX_1_-DCONFIG_AS_AVX2_1_-DCONFIG_AS_AVX512_1_-DCONFIG_AS_SHA1_NI_1_-DCONFIG_AS_SHA256_NI_1_-pipe_-Wno-sign-compare_-fno-asynchronous-unwind-tables_-mindirect-branch_thunk-extern_-mindirect-branch-register_-fno-jump-tables_-fno-delete-null-pointer-checks_______-O2_--param_allow-store-data-races_0_	.cache.mk	/^__cached_\/bin\/bash_.\/scripts\/gcc-goto.sh_gcc_-Wall_-Wundef_-Wstrict-prototypes_-Wno-trigraphs_-fno-strict-aliasing_-fno-common_-fshort-wchar_-Werror-implicit-function-declaration_-Werror_return-type_-Wno-format-security_-std_gnu89_-fno-PIE_-mno-sse_-mno-mmx_-mno-sse2_-mno-3dnow_-mno-avx_-m64_-falign-jumps_1_-falign-loops_1_-mno-80387_-mno-fp-ret-in-387_-mpreferred-stack-boundary_3_-mskip-rax-setup_-mtune_generic_-mno-red-zone_-mcmodel_kernel__-funit-at-a-time_-DCONFIG_X86_X32_ABI_-DCONFIG_AS_CFI_1_-DCONFIG_AS_CFI_SIGNAL_FRAME_1_-DCONFIG_AS_CFI_SECTIONS_1_-DCONFIG_AS_FXSAVEQ_1_-DCONFIG_AS_SSSE3_1_-DCONFIG_AS_CRC32_1_-DCONFIG_AS_AVX_1_-DCONFIG_AS_AVX2_1_-DCONFIG_AS_AVX512_1_-DCONFIG_AS_SHA1_NI_1_-DCONFIG_AS_SHA256_NI_1_-pipe_-Wno-sign-compare_-fno-asynchronous-unwind-tables_-mindirect-branch_thunk-extern_-mindirect-branch-register_-fno-jump-tables_-fno-delete-null-pointer-checks_______-O2_--param_allow-store-data-races_0_ := y$/;"	m	language:Make
+gcc-version.sh_-p_gcc	.cache.mk	/^__cached_\/bin\/bash_.\/scripts\/gcc-version.sh_-p_gcc := 050400$/;"	m	language:Make
+gcc-version.sh_gcc	.cache.mk	/^__cached_\/bin\/bash_.\/scripts\/gcc-version.sh_gcc := 0504$/;"	m	language:Make
+get_engine_channel_id	libxdma.c	/^static int get_engine_channel_id(struct engine_regs *regs)$/;"	f	language:C	file:
+get_engine_id	libxdma.c	/^static int get_engine_id(struct engine_regs *regs)$/;"	f	language:C	file:
+get_perf_stats	libxdma.c	/^void get_perf_stats(struct xdma_engine *engine)$/;"	f	language:C
+got_regions	libxdma.h	/^	int got_regions;	\/* flag if probe() obtained the regions *\/$/;"	m	language:C++	struct:xdma_dev
+h2c_channel_max	libxdma.h	/^	int h2c_channel_max;$/;"	m	language:C++	struct:xdma_dev
+h2c_channel_max	xdma_mod.h	/^	int h2c_channel_max;$/;"	m	language:C++	struct:xdma_pci_dev
+h2c_timeout	cdev_sgdma.c	/^unsigned int h2c_timeout = 10;$/;"	v	language:C
+handler	libxdma.h	/^	irq_handler_t handler;$/;"	m	language:C++	struct:xdma_user_irq
+id	xdma_thread.h	/^	unsigned short id;$/;"	m	language:C++	struct:xdma_kthread
+identifier	libxdma.h	/^	u32 identifier;$/;"	m	language:C++	struct:config_regs
+identifier	libxdma.h	/^	u32 identifier;$/;"	m	language:C++	struct:engine_regs
+identifier	libxdma.h	/^	u32 identifier;$/;"	m	language:C++	struct:engine_sgdma_regs
+identifier	libxdma.h	/^	u32 identifier;$/;"	m	language:C++	struct:interrupt_regs
+identify_bars	libxdma.c	/^static int identify_bars(struct xdma_dev *xdev, int *bar_id_list, int num_bars,$/;"	f	language:C	file:
+idx	libxdma.h	/^	int idx;		\/* dev index *\/$/;"	m	language:C++	struct:xdma_dev
+instance	xdma_mod.h	/^	int instance;		\/* instance number *\/$/;"	m	language:C++	struct:xdma_pci_dev
+interrupt_enable_mask	libxdma.h	/^	u32 interrupt_enable_mask;$/;"	m	language:C++	struct:engine_regs
+interrupt_enable_mask_value	libxdma.h	/^	u32 interrupt_enable_mask_value;$/;"	m	language:C++	struct:xdma_engine
+interrupt_enable_mask_w1c	libxdma.h	/^	u32 interrupt_enable_mask_w1c;$/;"	m	language:C++	struct:engine_regs
+interrupt_enable_mask_w1s	libxdma.h	/^	u32 interrupt_enable_mask_w1s;$/;"	m	language:C++	struct:engine_regs
+interrupt_mode	libxdma.c	/^static unsigned int interrupt_mode;$/;"	v	language:C	file:
+interrupt_regs	libxdma.h	/^struct interrupt_regs {$/;"	s	language:C++
+intr_work_cpu	libxdma.h	/^	unsigned int intr_work_cpu;$/;"	m	language:C++	struct:xdma_engine
+io_done	libxdma.h	/^	void (*io_done)(unsigned long cb_hndl, int err);$/;"	m	language:C++	struct:xdma_io_cb
+iocb	xdma_mod.h	/^	struct kiocb *iocb;$/;"	m	language:C++	struct:cdev_async_io	typeref:struct:cdev_async_io::kiocb
+ioctl_do_addrmode_get	cdev_sgdma.c	/^static int ioctl_do_addrmode_get(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+ioctl_do_addrmode_set	cdev_sgdma.c	/^static int ioctl_do_addrmode_set(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+ioctl_do_align_get	cdev_sgdma.c	/^static int ioctl_do_align_get(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+ioctl_do_perf_get	cdev_sgdma.c	/^static int ioctl_do_perf_get(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+ioctl_do_perf_start	cdev_sgdma.c	/^static int ioctl_do_perf_start(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+ioctl_do_perf_stop	cdev_sgdma.c	/^static int ioctl_do_perf_stop(struct xdma_engine *engine, unsigned long arg)$/;"	f	language:C	file:
+irq_bitmask	libxdma.h	/^	u32 irq_bitmask;		\/* IRQ bit mask for this engine *\/$/;"	m	language:C++	struct:xdma_engine
+irq_count	libxdma.h	/^	int irq_count;		\/* interrupt counter *\/$/;"	m	language:C++	struct:xdma_dev
+irq_legacy_setup	libxdma.c	/^static int irq_legacy_setup(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+irq_line	libxdma.h	/^	int irq_line;		\/* flag if irq allocated successfully *\/$/;"	m	language:C++	struct:xdma_dev
+irq_msi_setup	libxdma.c	/^static int irq_msi_setup(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+irq_msix_channel_setup	libxdma.c	/^static int irq_msix_channel_setup(struct xdma_dev *xdev)$/;"	f	language:C	file:
+irq_msix_channel_teardown	libxdma.c	/^static void irq_msix_channel_teardown(struct xdma_dev *xdev)$/;"	f	language:C	file:
+irq_msix_user_setup	libxdma.c	/^static int irq_msix_user_setup(struct xdma_dev *xdev)$/;"	f	language:C	file:
+irq_msix_user_teardown	libxdma.c	/^static void irq_msix_user_teardown(struct xdma_dev *xdev)$/;"	f	language:C	file:
+irq_setup	libxdma.c	/^static int irq_setup(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+irq_teardown	libxdma.c	/^static void irq_teardown(struct xdma_dev *xdev)$/;"	f	language:C	file:
+is_config_bar	libxdma.c	/^static int is_config_bar(struct xdma_dev *xdev, int idx)$/;"	f	language:C	file:
+iterations	cdev_sgdma.h	/^	uint32_t iterations;$/;"	m	language:C++	struct:xdma_performance_ioctl
+last_in_request	libxdma.h	/^	int last_in_request;		\/* flag if last within request *\/$/;"	m	language:C++	struct:xdma_transfer
+len	libxdma.h	/^	size_t len;$/;"	m	language:C++	struct:xdma_io_cb
+len	libxdma.h	/^	unsigned int len;$/;"	m	language:C++	struct:sw_desc
+len	libxdma.h	/^	unsigned int len;$/;"	m	language:C++	struct:xdma_transfer
+len_granularity	libxdma.h	/^	u8 len_granularity;	\/* transfer length multiple *\/$/;"	m	language:C++	struct:xdma_engine
+length	cdev_xvc.h	/^	unsigned int length;$/;"	m	language:C++	struct:xvc_ioc
+length	libxdma.h	/^	u32 length;$/;"	m	language:C++	struct:xdma_result
+list_head	libxdma.h	/^	struct list_head list_head;$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::list_head
+list_last_entry	libxdma.c	104;"	d	language:C	file:
+list_last_entry	libxdma.c	139;"	d	language:C	file:
+lock	libxdma.h	/^	spinlock_t lock;		\/* protects concurrent access *\/$/;"	m	language:C++	struct:xdma_dev
+lock	libxdma.h	/^	spinlock_t lock;		\/* protects concurrent access *\/$/;"	m	language:C++	struct:xdma_engine
+lock	xdma_mod.h	/^	spinlock_t lock;$/;"	m	language:C++	struct:cdev_async_io
+lock	xdma_mod.h	/^	spinlock_t lock;$/;"	m	language:C++	struct:xdma_cdev
+lock	xdma_thread.h	/^	spinlock_t lock;$/;"	m	language:C++	struct:xdma_kthread
+lock_thread	xdma_thread.h	40;"	d	language:C++
+lock_thread	xdma_thread.h	62;"	d	language:C++
+magic	cdev_ctrl.h	/^	unsigned int magic;$/;"	m	language:C++	struct:xdma_ioc_base
+magic	libxdma.h	/^	unsigned long magic;		\/* structure ID for sanity checks *\/$/;"	m	language:C++	struct:xdma_dev
+magic	libxdma.h	/^	unsigned long magic;	\/* structure ID for sanity checks *\/$/;"	m	language:C++	struct:xdma_engine
+magic	xdma_mod.h	/^	unsigned long magic;		\/* structure ID for sanity checks *\/$/;"	m	language:C++	struct:xdma_cdev
+magic	xdma_mod.h	/^	unsigned long magic;		\/* structure ID for sanity checks *\/$/;"	m	language:C++	struct:xdma_pci_dev
+major	xdma_mod.h	/^	int major;		\/* major number *\/$/;"	m	language:C++	struct:xdma_pci_dev
+map_bars	libxdma.c	/^static int map_bars(struct xdma_dev *xdev, struct pci_dev *dev)$/;"	f	language:C	file:
+map_single_bar	libxdma.c	/^static int map_single_bar(struct xdma_dev *xdev, struct pci_dev *dev, int idx)$/;"	f	language:C	file:
+mask_irq_c2h	libxdma.h	/^	u32 mask_irq_c2h;$/;"	m	language:C++	struct:xdma_dev
+mask_irq_h2c	libxdma.h	/^	u32 mask_irq_h2c;$/;"	m	language:C++	struct:xdma_dev
+mask_irq_user	libxdma.h	/^	unsigned int mask_irq_user;$/;"	m	language:C++	struct:xdma_dev
+max_extra_adj	libxdma.h	/^	int max_extra_adj;	\/* descriptor prefetch capability *\/$/;"	m	language:C++	struct:xdma_engine
+mod_name	libxdma.h	/^	const char *mod_name;		\/* name of module owning the dev *\/$/;"	m	language:C++	struct:xdma_dev
+msi_enable	libxdma.h	/^	u32 msi_enable;$/;"	m	language:C++	struct:config_regs
+msi_enabled	libxdma.h	/^	int msi_enabled;	\/* flag if msi was enabled for the device *\/$/;"	m	language:C++	struct:xdma_dev
+msi_msix_capable	libxdma.c	/^static int msi_msix_capable(struct pci_dev *dev, int type)$/;"	f	language:C	file:
+msi_vec_addr_hi	libxdma.h	/^	u32 msi_vec_addr_hi;$/;"	m	language:C++	struct:msix_vec_table_entry
+msi_vec_addr_lo	libxdma.h	/^	u32 msi_vec_addr_lo;$/;"	m	language:C++	struct:msix_vec_table_entry
+msi_vec_data_hi	libxdma.h	/^	u32 msi_vec_data_hi;$/;"	m	language:C++	struct:msix_vec_table_entry
+msi_vec_data_lo	libxdma.h	/^	u32 msi_vec_data_lo;$/;"	m	language:C++	struct:msix_vec_table_entry
+msix_enabled	libxdma.h	/^	int msix_enabled;	\/* flag if msi-x was enabled for the device *\/$/;"	m	language:C++	struct:xdma_dev
+msix_irq_line	libxdma.h	/^	int msix_irq_line;		\/* MSI-X vector for this engine *\/$/;"	m	language:C++	struct:xdma_engine
+msix_vec_table	libxdma.h	/^struct msix_vec_table {$/;"	s	language:C++
+msix_vec_table_entry	libxdma.h	/^struct msix_vec_table_entry {$/;"	s	language:C++
+name	libxdma.h	/^	char name[16];		\/* name of this engine *\/$/;"	m	language:C++	struct:xdma_engine
+name	xdma_thread.h	/^	char name[16];$/;"	m	language:C++	struct:xdma_kthread
+next	xdma_mod.h	/^	struct cdev_async_io *next;$/;"	m	language:C++	struct:cdev_async_io	typeref:struct:cdev_async_io::cdev_async_io
+next_hi	libxdma.h	/^	u32 next_hi;		\/* next desc address (high 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+next_lo	libxdma.h	/^	u32 next_lo;		\/* next desc address (low 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+non_incr_addr	libxdma.h	/^	u8 non_incr_addr:1;	\/* flag if non-incremental addressing used *\/$/;"	m	language:C++	struct:xdma_engine
+opcode	cdev_xvc.h	/^	unsigned int opcode;$/;"	m	language:C++	struct:xvc_ioc
+padding	libxdma.h	/^	u32 padding[8];$/;"	m	language:C++	struct:sgdma_common_regs
+pages	libxdma.h	/^	struct page **pages;$/;"	m	language:C++	struct:xdma_io_cb	typeref:struct:xdma_io_cb::page
+pages_nr	libxdma.h	/^	unsigned int pages_nr;$/;"	m	language:C++	struct:xdma_io_cb
+pci_check_intr_pend	libxdma.c	/^static void pci_check_intr_pend(struct pci_dev *pdev)$/;"	f	language:C	file:
+pci_driver	xdma_mod.c	/^static struct pci_driver pci_driver = {$/;"	v	language:C	typeref:struct:pci_driver	file:
+pci_enable_capability	libxdma.c	/^static void pci_enable_capability(struct pci_dev *pdev, int cap)$/;"	f	language:C	file:
+pci_ids	xdma_mod.c	/^static const struct pci_device_id pci_ids[] = {$/;"	v	language:C	typeref:struct:pci_device_id	file:
+pci_keep_intx_enabled	libxdma.c	/^static void pci_keep_intx_enabled(struct pci_dev *pdev)$/;"	f	language:C	file:
+pdev	libxdma.h	/^	struct pci_dev *pdev;	\/* pci device struct from probe() *\/$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::pci_dev
+pdev	xdma_mod.h	/^	struct pci_dev *pdev;	\/* pci device struct from probe() *\/$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::pci_dev
+pending_count	cdev_sgdma.h	/^	uint64_t pending_count;$/;"	m	language:C++	struct:xdma_performance_ioctl
+perf_buf_bus	libxdma.h	/^	dma_addr_t perf_buf_bus; \/* bus address *\/$/;"	m	language:C++	struct:xdma_engine
+perf_buf_virt	libxdma.h	/^	u8 *perf_buf_virt;$/;"	m	language:C++	struct:xdma_engine
+perf_ctrl	libxdma.h	/^	u32 perf_ctrl;$/;"	m	language:C++	struct:engine_regs
+perf_cyc_hi	libxdma.h	/^	u32 perf_cyc_hi;$/;"	m	language:C++	struct:engine_regs
+perf_cyc_lo	libxdma.h	/^	u32 perf_cyc_lo;$/;"	m	language:C++	struct:engine_regs
+perf_dat_hi	libxdma.h	/^	u32 perf_dat_hi;$/;"	m	language:C++	struct:engine_regs
+perf_dat_lo	libxdma.h	/^	u32 perf_dat_lo;$/;"	m	language:C++	struct:engine_regs
+perf_pnd_hi	libxdma.h	/^	u32 perf_pnd_hi;$/;"	m	language:C++	struct:engine_regs
+perf_pnd_lo	libxdma.h	/^	u32 perf_pnd_lo;$/;"	m	language:C++	struct:engine_regs
+poll_mode	libxdma.c	/^static unsigned int poll_mode;$/;"	v	language:C	file:
+poll_mode_addr_virt	libxdma.h	/^	u8 *poll_mode_addr_virt;	\/* virt addr for descriptor writeback *\/$/;"	m	language:C++	struct:xdma_engine
+poll_mode_bus	libxdma.h	/^	dma_addr_t poll_mode_bus;	\/* bus addr for descriptor writeback *\/$/;"	m	language:C++	struct:xdma_engine
+poll_mode_wb_hi	libxdma.h	/^	u32 poll_mode_wb_hi;$/;"	m	language:C++	struct:engine_regs
+poll_mode_wb_lo	libxdma.h	/^	u32 poll_mode_wb_lo;$/;"	m	language:C++	struct:engine_regs
+pr_debug_thread	xdma_thread.h	58;"	d	language:C++
+pr_debug_thread	xdma_thread.h	71;"	d	language:C++
+pr_fmt	cdev_bypass.c	19;"	d	language:C	file:
+pr_fmt	cdev_ctrl.c	20;"	d	language:C	file:
+pr_fmt	cdev_events.c	20;"	d	language:C	file:
+pr_fmt	cdev_sgdma.c	20;"	d	language:C	file:
+pr_fmt	cdev_xvc.c	20;"	d	language:C	file:
+pr_fmt	libxdma.c	20;"	d	language:C	file:
+pr_fmt	xdma_cdev.c	20;"	d	language:C	file:
+pr_fmt	xdma_mod.c	20;"	d	language:C	file:
+pr_fmt	xdma_thread.c	20;"	d	language:C	file:
+prev_cpu	libxdma.h	/^	int prev_cpu;			\/* remember CPU# of (last) locker *\/$/;"	m	language:C++	struct:xdma_engine
+probe_engines	libxdma.c	/^static int probe_engines(struct xdma_dev *xdev)$/;"	f	language:C	file:
+probe_for_engine	libxdma.c	/^static int probe_for_engine(struct xdma_dev *xdev, enum dma_data_direction dir,$/;"	f	language:C	file:
+probe_one	xdma_mod.c	/^static int probe_one(struct pci_dev *pdev, const struct pci_device_id *id)$/;"	f	language:C	file:
+prog_irq_msix_channel	libxdma.c	/^static void prog_irq_msix_channel(struct xdma_dev *xdev, bool clear)$/;"	f	language:C	file:
+prog_irq_msix_user	libxdma.c	/^static void prog_irq_msix_user(struct xdma_dev *xdev, bool clear)$/;"	f	language:C	file:
+rcu_node	libxdma.h	/^	struct list_head rcu_node;$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::list_head
+read_interrupts	libxdma.c	/^static u32 read_interrupts(struct xdma_dev *xdev)$/;"	f	language:C	file:
+read_register	cdev_xvc.c	50;"	d	language:C	file:
+read_register	cdev_xvc.c	54;"	d	language:C	file:
+read_register	libxdma.c	/^inline u32 read_register(void *iomem)$/;"	f	language:C
+regions_in_use	libxdma.h	/^	int regions_in_use;	\/* flag if dev was in use during probe() *\/$/;"	m	language:C++	struct:xdma_dev
+regs	libxdma.h	/^	struct engine_regs *regs;		\/* Control reg BAR offset *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::engine_regs
+remove_engines	libxdma.c	/^static void remove_engines(struct xdma_dev *xdev)$/;"	f	language:C	file:
+remove_one	xdma_mod.c	/^static void remove_one(struct pci_dev *pdev)$/;"	f	language:C	file:
+req	libxdma.h	/^	struct xdma_request_cb *req;$/;"	m	language:C++	struct:xdma_io_cb	typeref:struct:xdma_io_cb::xdma_request_cb
+req_cnt	xdma_mod.h	/^	int req_cnt;$/;"	m	language:C++	struct:cdev_async_io
+request_regions	libxdma.c	/^static int request_regions(struct xdma_dev *xdev, struct pci_dev *pdev)$/;"	f	language:C	file:
+res	xdma_mod.h	/^	ssize_t res;$/;"	m	language:C++	struct:cdev_async_io
+res2	xdma_mod.h	/^	ssize_t res2;$/;"	m	language:C++	struct:cdev_async_io
+res_bus	libxdma.h	/^	dma_addr_t res_bus;		\/* bus addr for result descriptors *\/$/;"	m	language:C++	struct:xdma_transfer
+res_virt	libxdma.h	/^	struct xdma_result *res_virt;   \/* virt addr of result, c2h streaming *\/$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::xdma_result
+reserved_1	libxdma.h	/^	u32 reserved_1[12];	\/* padding *\/$/;"	m	language:C++	struct:engine_regs
+reserved_1	libxdma.h	/^	u32 reserved_1[31];	\/* padding *\/$/;"	m	language:C++	struct:engine_sgdma_regs
+reserved_1	libxdma.h	/^	u32 reserved_1[4];$/;"	m	language:C++	struct:config_regs
+reserved_1	libxdma.h	/^	u32 reserved_1[6];	\/* padding *\/$/;"	m	language:C++	struct:xdma_result
+reserved_1	libxdma.h	/^	u32 reserved_1[7];$/;"	m	language:C++	struct:xdma_poll_wb
+reserved_1	libxdma.h	/^	u32 reserved_1[9];	\/* padding *\/$/;"	m	language:C++	struct:interrupt_regs
+reserved_2	libxdma.h	/^	u32 reserved_2[12];	\/* padding *\/$/;"	m	language:C++	struct:interrupt_regs
+reserved_2	libxdma.h	/^	u32 reserved_2[14];	\/* padding *\/$/;"	m	language:C++	struct:engine_regs
+reserved_3	libxdma.h	/^	u32 reserved_3[9];	\/* padding *\/$/;"	m	language:C++	struct:engine_regs
+running	libxdma.h	/^	u8 running:1;		\/* flag if the driver started engine *\/$/;"	m	language:C++	struct:xdma_engine
+schedule	xdma_thread.h	/^	unsigned int schedule;$/;"	m	language:C++	struct:xdma_kthread
+sdesc	libxdma.h	/^	struct sw_desc sdesc[0];$/;"	m	language:C++	struct:xdma_request_cb	typeref:struct:xdma_request_cb::sw_desc
+set_dma_mask	libxdma.c	/^static int set_dma_mask(struct pci_dev *pdev)$/;"	f	language:C	file:
+sgdma_c2h_cdev	xdma_mod.h	/^	struct xdma_cdev sgdma_c2h_cdev[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+sgdma_common_regs	libxdma.h	/^struct sgdma_common_regs {$/;"	s	language:C++
+sgdma_fops	cdev_sgdma.c	/^static const struct file_operations sgdma_fops = {$/;"	v	language:C	typeref:struct:file_operations	file:
+sgdma_h2c_cdev	xdma_mod.h	/^	struct xdma_cdev sgdma_h2c_cdev[XDMA_CHANNEL_NUM_MAX];$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+sgdma_regs	libxdma.h	/^	struct engine_sgdma_regs *sgdma_regs;	\/* SGDAM reg BAR offset *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::engine_sgdma_regs
+sgt	libxdma.h	/^	struct sg_table *sgt;$/;"	m	language:C++	struct:xdma_request_cb	typeref:struct:xdma_request_cb::sg_table
+sgt	libxdma.h	/^	struct sg_table *sgt;$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::sg_table
+sgt	libxdma.h	/^	struct sg_table sgt;$/;"	m	language:C++	struct:xdma_io_cb	typeref:struct:xdma_io_cb::sg_table
+sgt_dump	libxdma.c	/^static void sgt_dump(struct sg_table *sgt)$/;"	f	language:C	file:
+shutdown	libxdma.h	/^	enum shutdown_state shutdown;	\/* engine shutdown mode *\/$/;"	m	language:C++	struct:xdma_engine	typeref:enum:xdma_engine::shutdown_state
+shutdown_state	libxdma.h	/^enum shutdown_state {$/;"	g	language:C++
+shutdown_wq	libxdma.h	/^	struct swait_queue_head shutdown_wq;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::swait_queue_head
+shutdown_wq	libxdma.h	/^	wait_queue_head_t shutdown_wq;	\/* wait queue for shutdown sync *\/$/;"	m	language:C++	struct:xdma_engine
+src_addr_hi	libxdma.h	/^	u32 src_addr_hi;	\/* source address (high 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+src_addr_lo	libxdma.h	/^	u32 src_addr_lo;	\/* source address (low 32-bit) *\/$/;"	m	language:C++	struct:xdma_desc
+state	libxdma.h	/^	enum transfer_state state;	\/* state of the transfer *\/$/;"	m	language:C++	struct:xdma_transfer	typeref:enum:xdma_transfer::transfer_state
+status	libxdma.h	/^	u32 status;		\/* last known status of device *\/$/;"	m	language:C++	struct:xdma_engine
+status	libxdma.h	/^	u32 status;$/;"	m	language:C++	struct:engine_regs
+status	libxdma.h	/^	u32 status;$/;"	m	language:C++	struct:xdma_result
+status_rc	libxdma.h	/^	u32 status_rc;$/;"	m	language:C++	struct:engine_regs
+stopped	cdev_sgdma.h	/^	uint32_t stopped;$/;"	m	language:C++	struct:xdma_performance_ioctl
+streaming	libxdma.h	/^	u8 streaming:1;$/;"	m	language:C++	struct:xdma_engine
+subsystem_device	cdev_ctrl.h	/^	unsigned short		subsystem_device;$/;"	m	language:C++	struct:xdma_ioc_info
+subsystem_vendor	cdev_ctrl.h	/^	unsigned short		subsystem_vendor;$/;"	m	language:C++	struct:xdma_ioc_info
+sw_desc	libxdma.h	/^struct sw_desc {$/;"	s	language:C++
+sw_desc_cnt	libxdma.h	/^	unsigned int sw_desc_cnt;$/;"	m	language:C++	struct:xdma_request_cb
+sw_desc_idx	libxdma.h	/^	unsigned int sw_desc_idx;$/;"	m	language:C++	struct:xdma_request_cb
+sys_device	xdma_mod.h	/^	struct device *sys_device;	\/* sysfs device *\/$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::device
+task	xdma_thread.h	/^	struct task_struct *task;$/;"	m	language:C++	struct:xdma_kthread	typeref:struct:xdma_kthread::task_struct
+tdi_buf	cdev_xvc.h	/^	const char __user *tdi_buf;$/;"	m	language:C++	struct:xvc_ioc
+tdo_buf	cdev_xvc.h	/^	void __user *tdo_buf;$/;"	m	language:C++	struct:xvc_ioc
+tfer	libxdma.h	/^	struct xdma_transfer tfer[2];$/;"	m	language:C++	struct:xdma_request_cb	typeref:struct:xdma_request_cb::xdma_transfer
+thread_cnt	xdma_thread.c	/^static unsigned int thread_cnt;$/;"	v	language:C	file:
+timeout	xdma_thread.h	/^	unsigned int timeout;$/;"	m	language:C++	struct:xdma_kthread
+tms_buf	cdev_xvc.h	/^	const char __user *tms_buf;$/;"	m	language:C++	struct:xvc_ioc
+topdir	Makefile	/^topdir := $(shell cd $(src)\/.. && pwd)$/;"	m	language:Make
+total_len	libxdma.h	/^	unsigned int total_len;$/;"	m	language:C++	struct:xdma_request_cb
+transfer_abort	libxdma.c	/^static int transfer_abort(struct xdma_engine *engine,$/;"	f	language:C	file:
+transfer_build	libxdma.c	/^static int transfer_build(struct xdma_engine *engine,$/;"	f	language:C	file:
+transfer_desc_init	libxdma.c	/^static int transfer_desc_init(struct xdma_transfer *transfer, int count)$/;"	f	language:C	file:
+transfer_destroy	libxdma.c	/^static void transfer_destroy(struct xdma_dev *xdev, struct xdma_transfer *xfer)$/;"	f	language:C	file:
+transfer_dump	libxdma.c	/^static void transfer_dump(struct xdma_transfer *transfer)$/;"	f	language:C	file:
+transfer_init	libxdma.c	/^static int transfer_init(struct xdma_engine *engine,$/;"	f	language:C	file:
+transfer_list	libxdma.h	/^	struct list_head transfer_list;	\/* queue of transfers *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::list_head
+transfer_queue	libxdma.c	/^static int transfer_queue(struct xdma_engine *engine,$/;"	f	language:C	file:
+transfer_size	cdev_sgdma.h	/^	uint32_t transfer_size;$/;"	m	language:C++	struct:xdma_performance_ioctl
+transfer_state	libxdma.h	/^enum transfer_state {$/;"	g	language:C++
+unlock_thread	xdma_thread.h	46;"	d	language:C++
+unlock_thread	xdma_thread.h	64;"	d	language:C++
+unmap_bars	libxdma.c	/^static void unmap_bars(struct xdma_dev *xdev, struct pci_dev *dev)$/;"	f	language:C	file:
+user_bar_idx	libxdma.h	/^	int user_bar_idx;	\/* BAR index of user logic *\/$/;"	m	language:C++	struct:xdma_dev
+user_cdev	xdma_mod.h	/^	struct xdma_cdev user_cdev;$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+user_idx	libxdma.h	/^	u8 user_idx;			\/* 0 ~ 15 *\/$/;"	m	language:C++	struct:xdma_user_irq
+user_int_enable	libxdma.h	/^	u32 user_int_enable;$/;"	m	language:C++	struct:interrupt_regs
+user_int_enable_w1c	libxdma.h	/^	u32 user_int_enable_w1c;$/;"	m	language:C++	struct:interrupt_regs
+user_int_enable_w1s	libxdma.h	/^	u32 user_int_enable_w1s;$/;"	m	language:C++	struct:interrupt_regs
+user_int_pending	libxdma.h	/^	u32 user_int_pending;$/;"	m	language:C++	struct:interrupt_regs
+user_int_request	libxdma.h	/^	u32 user_int_request;$/;"	m	language:C++	struct:interrupt_regs
+user_interrupts_disable	libxdma.c	/^static void user_interrupts_disable(struct xdma_dev *xdev, u32 mask)$/;"	f	language:C	file:
+user_interrupts_enable	libxdma.c	/^static void user_interrupts_enable(struct xdma_dev *xdev, u32 mask)$/;"	f	language:C	file:
+user_irq	libxdma.h	/^	struct xdma_user_irq user_irq[16];	\/* user IRQ management *\/$/;"	m	language:C++	struct:xdma_dev	typeref:struct:xdma_dev::xdma_user_irq
+user_irq	xdma_mod.h	/^	struct xdma_user_irq *user_irq;	\/* IRQ value, if needed *\/$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::xdma_user_irq
+user_irq_service	libxdma.c	/^static irqreturn_t user_irq_service(int irq, struct xdma_user_irq *user_irq)$/;"	f	language:C	file:
+user_max	libxdma.h	/^	int user_max;$/;"	m	language:C++	struct:xdma_dev
+user_max	xdma_mod.h	/^	int user_max;$/;"	m	language:C++	struct:xdma_pci_dev
+user_msi_vector	libxdma.h	/^	u32 user_msi_vector[8];$/;"	m	language:C++	struct:interrupt_regs
+vendor	cdev_ctrl.h	/^	unsigned short		vendor;$/;"	m	language:C++	struct:xdma_ioc_info
+version	cdev_sgdma.h	/^	uint32_t version;$/;"	m	language:C++	struct:xdma_performance_ioctl
+version	libxdma.h	/^	int version;		\/* version of this engine *\/$/;"	m	language:C++	struct:xdma_engine
+version	xdma_mod.c	/^static char version[] =$/;"	v	language:C	file:
+version_ioctl	cdev_ctrl.c	/^static long version_ioctl(struct xdma_cdev *xcdev, void __user *arg)$/;"	f	language:C	file:
+waitq	xdma_thread.h	/^	wait_queue_head_t waitq;$/;"	m	language:C++	struct:xdma_kthread
+work	libxdma.h	/^	struct work_struct work;	\/* Work queue for interrupt handling *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::work_struct
+work_cnt	xdma_thread.h	/^	unsigned int work_cnt;$/;"	m	language:C++	struct:xdma_kthread
+work_list	xdma_thread.h	/^	struct list_head work_list;$/;"	m	language:C++	struct:xdma_kthread	typeref:struct:xdma_kthread::list_head
+wq	libxdma.h	/^	struct swait_queue_head wq;$/;"	m	language:C++	struct:xdma_transfer	typeref:struct:xdma_transfer::swait_queue_head
+wq	libxdma.h	/^	wait_queue_head_t wq;		\/* wait queue for transfer completion *\/$/;"	m	language:C++	struct:xdma_transfer
+write	libxdma.h	/^	u8 write:1;$/;"	m	language:C++	struct:xdma_io_cb
+write	xdma_mod.h	/^	bool write;$/;"	m	language:C++	struct:cdev_async_io
+write_register	cdev_bypass.c	24;"	d	language:C	file:
+write_register	cdev_xvc.c	49;"	d	language:C	file:
+write_register	cdev_xvc.c	53;"	d	language:C	file:
+write_register	libxdma.c	201;"	d	language:C	file:
+write_register	libxdma.c	203;"	d	language:C	file:
+wrk_itm	xdma_mod.h	/^	struct work_struct wrk_itm;$/;"	m	language:C++	struct:cdev_async_io	typeref:struct:cdev_async_io::work_struct
+xcdev_check	xdma_cdev.c	/^int xcdev_check(const char *fname, struct xdma_cdev *xcdev, bool check_engine)$/;"	f	language:C
+xcdev_flag_clear	xdma_cdev.c	/^static inline void xcdev_flag_clear(struct xdma_pci_dev *xpdev,$/;"	f	language:C	file:
+xdev	libxdma.h	/^	struct xdma_dev *xdev;		\/* parent device *\/$/;"	m	language:C++	struct:xdma_user_irq	typeref:struct:xdma_user_irq::xdma_dev
+xdev	libxdma.h	/^	struct xdma_dev *xdev;	\/* parent device *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::xdma_dev
+xdev	xdma_mod.h	/^	struct xdma_dev *xdev;$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::xdma_dev
+xdev	xdma_mod.h	/^	struct xdma_dev *xdev;$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_dev
+xdev_find_by_pdev	libxdma.c	/^struct xdma_dev *xdev_find_by_pdev(struct pci_dev *pdev)$/;"	f	language:C
+xdev_list_add	libxdma.c	/^static inline int xdev_list_add(struct xdma_dev *xdev)$/;"	f	language:C	file:
+xdev_list_remove	libxdma.c	/^static inline void xdev_list_remove(struct xdma_dev *xdev)$/;"	f	language:C	file:
+xdma_cdev	xdma_mod.h	/^struct xdma_cdev {$/;"	s	language:C++
+xdma_cdev_cleanup	xdma_cdev.c	/^void xdma_cdev_cleanup(void)$/;"	f	language:C
+xdma_cdev_init	xdma_cdev.c	/^int xdma_cdev_init(void)$/;"	f	language:C
+xdma_channel_irq	libxdma.c	/^static irqreturn_t xdma_channel_irq(int irq, void *dev_id)$/;"	f	language:C	file:
+xdma_desc	libxdma.h	/^struct xdma_desc {$/;"	s	language:C++
+xdma_desc_adjacent	libxdma.c	/^static void xdma_desc_adjacent(struct xdma_desc *desc, u32 next_adjacent)$/;"	f	language:C	file:
+xdma_desc_control_set	libxdma.c	/^static int xdma_desc_control_set(struct xdma_desc *first, u32 control_field)$/;"	f	language:C	file:
+xdma_desc_done	libxdma.c	/^static inline void xdma_desc_done(struct xdma_desc *desc_virt, int count)$/;"	f	language:C	file:
+xdma_desc_link	libxdma.c	/^static void xdma_desc_link(struct xdma_desc *first, struct xdma_desc *second,$/;"	f	language:C	file:
+xdma_desc_set	libxdma.c	/^static void xdma_desc_set(struct xdma_desc *desc, dma_addr_t rc_bus_addr,$/;"	f	language:C	file:
+xdma_dev	libxdma.h	/^struct xdma_dev {$/;"	s	language:C++
+xdma_dev_instance_show	xdma_cdev.c	/^ssize_t xdma_dev_instance_show(struct device *dev,$/;"	f	language:C
+xdma_device_close	libxdma.c	/^void xdma_device_close(struct pci_dev *pdev, void *dev_hndl)$/;"	f	language:C
+xdma_device_flag_check	libxdma.h	/^static inline int xdma_device_flag_check(struct xdma_dev *xdev, unsigned int f)$/;"	f	language:C++
+xdma_device_flag_clear	libxdma.h	/^static inline void xdma_device_flag_clear(struct xdma_dev *xdev, unsigned int f)$/;"	f	language:C++
+xdma_device_flag_set	libxdma.h	/^static inline void xdma_device_flag_set(struct xdma_dev *xdev, unsigned int f)$/;"	f	language:C++
+xdma_device_flag_test_n_set	libxdma.h	/^static inline int xdma_device_flag_test_n_set(struct xdma_dev *xdev,$/;"	f	language:C++
+xdma_device_offline	libxdma.c	/^void xdma_device_offline(struct pci_dev *pdev, void *dev_hndl)$/;"	f	language:C
+xdma_device_online	libxdma.c	/^void xdma_device_online(struct pci_dev *pdev, void *dev_hndl)$/;"	f	language:C
+xdma_device_open	libxdma.c	/^void *xdma_device_open(const char *mname, struct pci_dev *pdev, int *user_max,$/;"	f	language:C
+xdma_device_restart	libxdma.c	/^int xdma_device_restart(struct pci_dev *pdev, void *dev_hndl)$/;"	f	language:C
+xdma_engine	libxdma.h	/^struct xdma_engine {$/;"	s	language:C++
+xdma_engine_stop	libxdma.c	/^static int xdma_engine_stop(struct xdma_engine *engine)$/;"	f	language:C	file:
+xdma_err_handler	xdma_mod.c	/^static const struct pci_error_handlers xdma_err_handler = {$/;"	v	language:C	typeref:struct:pci_error_handlers	file:
+xdma_error_detected	xdma_mod.c	/^static pci_ers_result_t xdma_error_detected(struct pci_dev *pdev,$/;"	f	language:C	file:
+xdma_error_resume	xdma_mod.c	/^static void xdma_error_resume(struct pci_dev *pdev)$/;"	f	language:C	file:
+xdma_get_next_adj	libxdma.c	/^static u32 xdma_get_next_adj(unsigned int remaining, u32 next_lo)$/;"	f	language:C	file:
+xdma_init_request	libxdma.c	/^static struct xdma_request_cb *xdma_init_request(struct sg_table *sgt,$/;"	f	language:C	file:
+xdma_io_cb	libxdma.h	/^struct xdma_io_cb {$/;"	s	language:C++
+xdma_io_cb_release	cdev_sgdma.c	/^static inline void xdma_io_cb_release(struct xdma_io_cb *cb)$/;"	f	language:C	file:
+xdma_ioc_base	cdev_ctrl.h	/^struct xdma_ioc_base {$/;"	s	language:C++
+xdma_ioc_info	cdev_ctrl.h	/^struct xdma_ioc_info {$/;"	s	language:C++
+xdma_isr	libxdma.c	/^static irqreturn_t xdma_isr(int irq, void *dev_id)$/;"	f	language:C	file:
+xdma_kthread	xdma_thread.h	/^struct xdma_kthread {$/;"	s	language:C++
+xdma_kthread_start	xdma_thread.c	/^int xdma_kthread_start(struct xdma_kthread *thp, char *name, int id)$/;"	f	language:C
+xdma_kthread_stop	xdma_thread.c	/^int xdma_kthread_stop(struct xdma_kthread *thp)$/;"	f	language:C
+xdma_kthread_wakeup	xdma_thread.h	52;"	d	language:C++
+xdma_kthread_wakeup	xdma_thread.h	65;"	d	language:C++
+xdma_mod_exit	xdma_mod.c	/^module_exit(xdma_mod_exit);$/;"	v	language:C
+xdma_mod_exit	xdma_mod.c	/^static void xdma_mod_exit(void)$/;"	f	language:C	file:
+xdma_mod_init	xdma_mod.c	/^module_init(xdma_mod_init);$/;"	v	language:C
+xdma_mod_init	xdma_mod.c	/^static int xdma_mod_init(void)$/;"	f	language:C	file:
+xdma_pci_dev	xdma_mod.h	/^struct xdma_pci_dev {$/;"	s	language:C++
+xdma_perf	libxdma.h	/^	struct xdma_performance_ioctl *xdma_perf;	\/* perf test control *\/$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::xdma_performance_ioctl
+xdma_perf_wq	libxdma.h	/^	struct swait_queue_head xdma_perf_wq;$/;"	m	language:C++	struct:xdma_engine	typeref:struct:xdma_engine::swait_queue_head
+xdma_perf_wq	libxdma.h	/^	wait_queue_head_t xdma_perf_wq;	\/* Perf test sync *\/$/;"	m	language:C++	struct:xdma_engine
+xdma_performance_ioctl	cdev_sgdma.h	/^struct xdma_performance_ioctl {$/;"	s	language:C++
+xdma_performance_submit	libxdma.c	/^int xdma_performance_submit(struct xdma_dev *xdev, struct xdma_engine *engine)$/;"	f	language:C
+xdma_poll_wb	libxdma.h	/^struct xdma_poll_wb {$/;"	s	language:C++
+xdma_request_alloc	libxdma.c	/^static struct xdma_request_cb *xdma_request_alloc(unsigned int sdesc_nr)$/;"	f	language:C	file:
+xdma_request_cb	libxdma.h	/^struct xdma_request_cb {$/;"	s	language:C++
+xdma_request_cb_dump	libxdma.c	/^static void xdma_request_cb_dump(struct xdma_request_cb *req)$/;"	f	language:C	file:
+xdma_request_free	libxdma.c	/^static void xdma_request_free(struct xdma_request_cb *req)$/;"	f	language:C	file:
+xdma_reset_done	xdma_mod.c	/^static void xdma_reset_done(struct pci_dev *pdev)$/;"	f	language:C	file:
+xdma_reset_notify	xdma_mod.c	/^static void xdma_reset_notify(struct pci_dev *pdev, bool prepare)$/;"	f	language:C	file:
+xdma_reset_prepare	xdma_mod.c	/^static void xdma_reset_prepare(struct pci_dev *pdev)$/;"	f	language:C	file:
+xdma_result	libxdma.h	/^struct xdma_result {$/;"	s	language:C++
+xdma_slot_reset	xdma_mod.c	/^static pci_ers_result_t xdma_slot_reset(struct pci_dev *pdev)$/;"	f	language:C	file:
+xdma_thread_add_work	xdma_thread.c	/^void xdma_thread_add_work(struct xdma_engine *engine)$/;"	f	language:C
+xdma_thread_cmpl_status_pend	xdma_thread.c	/^static int xdma_thread_cmpl_status_pend(struct list_head *work_item)$/;"	f	language:C	file:
+xdma_thread_cmpl_status_proc	xdma_thread.c	/^static int xdma_thread_cmpl_status_proc(struct list_head *work_item)$/;"	f	language:C	file:
+xdma_thread_remove_work	xdma_thread.c	/^void xdma_thread_remove_work(struct xdma_engine *engine)$/;"	f	language:C
+xdma_threads_create	xdma_thread.c	/^int xdma_threads_create(unsigned int num_threads)$/;"	f	language:C
+xdma_threads_destroy	xdma_thread.c	/^void xdma_threads_destroy(void)$/;"	f	language:C
+xdma_transfer	libxdma.h	/^struct xdma_transfer {$/;"	s	language:C++
+xdma_user_irq	libxdma.c	/^static irqreturn_t xdma_user_irq(int irq, void *dev_id)$/;"	f	language:C	file:
+xdma_user_irq	libxdma.h	/^struct xdma_user_irq {$/;"	s	language:C++
+xdma_user_isr_disable	libxdma.c	/^int xdma_user_isr_disable(void *dev_hndl, unsigned int mask)$/;"	f	language:C
+xdma_user_isr_enable	libxdma.c	/^int xdma_user_isr_enable(void *dev_hndl, unsigned int mask)$/;"	f	language:C
+xdma_user_isr_register	libxdma.c	/^int xdma_user_isr_register(void *dev_hndl, unsigned int mask,$/;"	f	language:C
+xdma_xfer_completion	libxdma.c	/^ssize_t xdma_xfer_completion(void *cb_hndl, void *dev_hndl, int channel,$/;"	f	language:C
+xdma_xfer_submit	libxdma.c	/^ssize_t xdma_xfer_submit(void *dev_hndl, int channel, bool write, u64 ep_addr,$/;"	f	language:C
+xdma_xfer_submit_nowait	libxdma.c	/^ssize_t xdma_xfer_submit_nowait(void *cb_hndl, void *dev_hndl, int channel,$/;"	f	language:C
+xlx_access_ok	cdev_ctrl.c	28;"	d	language:C	file:
+xlx_access_ok	cdev_ctrl.c	30;"	d	language:C	file:
+xlx_wait_event_interruptible	libxdma.c	66;"	d	language:C	file:
+xlx_wait_event_interruptible	libxdma.c	72;"	d	language:C	file:
+xlx_wait_event_interruptible	libxdma.c	88;"	d	language:C	file:
+xlx_wait_event_interruptible_timeout	libxdma.c	64;"	d	language:C	file:
+xlx_wait_event_interruptible_timeout	libxdma.c	70;"	d	language:C	file:
+xlx_wait_event_interruptible_timeout	libxdma.c	78;"	d	language:C	file:
+xlx_wake_up	libxdma.c	63;"	d	language:C	file:
+xlx_wake_up	libxdma.c	69;"	d	language:C	file:
+xlx_wake_up	libxdma.c	75;"	d	language:C	file:
+xpdev	xdma_mod.h	/^	struct xdma_pci_dev *xpdev;$/;"	m	language:C++	struct:xdma_cdev	typeref:struct:xdma_cdev::xdma_pci_dev
+xpdev_alloc	xdma_mod.c	/^static struct xdma_pci_dev *xpdev_alloc(struct pci_dev *pdev)$/;"	f	language:C	file:
+xpdev_cnt	xdma_mod.c	/^static int xpdev_cnt;$/;"	v	language:C	file:
+xpdev_create_interfaces	xdma_cdev.c	/^int xpdev_create_interfaces(struct xdma_pci_dev *xpdev)$/;"	f	language:C
+xpdev_destroy_interfaces	xdma_cdev.c	/^void xpdev_destroy_interfaces(struct xdma_pci_dev *xpdev)$/;"	f	language:C
+xpdev_flag_set	xdma_cdev.c	/^static inline void xpdev_flag_set(struct xdma_pci_dev *xpdev,$/;"	f	language:C	file:
+xpdev_flag_test	xdma_cdev.c	/^static inline int xpdev_flag_test(struct xdma_pci_dev *xpdev,$/;"	f	language:C	file:
+xpdev_flags_bits	xdma_cdev.c	/^enum xpdev_flags_bits {$/;"	g	language:C	file:
+xpdev_free	xdma_mod.c	/^static void xpdev_free(struct xdma_pci_dev *xpdev)$/;"	f	language:C	file:
+xthread_main	xdma_thread.c	/^static int xthread_main(void *data)$/;"	f	language:C	file:
+xthread_reschedule	xdma_thread.c	/^static inline void xthread_reschedule(struct xdma_kthread *thp)$/;"	f	language:C	file:
+xthread_work_pending	xdma_thread.c	/^static inline int xthread_work_pending(struct xdma_kthread *thp)$/;"	f	language:C	file:
+xvc_cdev	xdma_mod.h	/^	struct xdma_cdev xvc_cdev;$/;"	m	language:C++	struct:xdma_pci_dev	typeref:struct:xdma_pci_dev::xdma_cdev
+xvc_fops	cdev_xvc.c	/^static const struct file_operations xvc_fops = {$/;"	v	language:C	typeref:struct:file_operations	file:
+xvc_ioc	cdev_xvc.h	/^struct xvc_ioc {$/;"	s	language:C++
+xvc_ioctl	cdev_xvc.c	/^static long xvc_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	language:C	file:
+xvc_shift_bits	cdev_xvc.c	/^static int xvc_shift_bits(void __iomem *base, u32 tms_bits, u32 tdi_bits,$/;"	f	language:C	file:
