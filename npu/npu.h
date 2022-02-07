@@ -85,9 +85,16 @@ struct npu_buf_info {
 	int out_fd;
 };
 
+struct npu_buf_req {
+    int size;
+    uint64_t addr;
+};
+
 struct npu_net_req {
 	int cmd_size;
 	int wei_size;
+    int cmd_addr;
+    int wei_addr;
 	char *cmd_data;
 	char *wei_data;
 };
@@ -97,6 +104,7 @@ struct npu_net_req {
 #define NPU_IOCTL_BUFFER_CREATE		_IOW(NPU_IOCTL_MAGIC, 0, int)
 #define NPU_IOCTL_NETWORK_CREATE  	_IOW(NPU_IOCTL_MAGIC, 1, struct npu_net_req)
 #define NPU_IOCTL_RUN_INFERENCE		_IOW(NPU_IOCTL_MAGIC, 2, struct npu_buf_info)
+#define NPU_IOCTL_LOAD_MLX_KERNEL	_IOW(NPU_IOCTL_MAGIC, 5, int)
 #define NPU_IOCTL_SET_COLOR_CONV		_IOW(NPU_IOCTL_MAGIC, 6, int) 
 
 #endif

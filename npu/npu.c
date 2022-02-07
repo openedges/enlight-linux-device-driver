@@ -33,10 +33,27 @@
 #include <linux/anon_inodes.h>
 #include <linux/file.h>
 #include <linux/version.h>
+
+#include <linux/eventpoll.h>
+#include <linux/poll.h>
+#include <linux/wait.h>
+#include <linux/workqueue.h>
+
 #include "npu.h"
 
 #define TIME_OUT
 //#define NPU_DEBUG
+#define NPU_MAX_MINORS 2
+
+struct npu_device_data {
+    void  __iomem *mem;
+	struct mutex	lock;
+    int irq;
+    /* to do 
+     * define npu device structure
+     * */
+
+};
 
 struct npu_buffer {
 	unsigned long phys_start;
@@ -45,29 +62,36 @@ struct npu_buffer {
 };
 
 struct npu_network {
+  	struct npu_device_data *npu;
     struct npu_buffer *cmd_buf;
     struct npu_buffer *wei_buf;
+    wait_queue_head_t poll_waitq;
     struct file *file;
 };
+
+struct npu_cmd {
+	struct npu_network *net;
+	unsigned long input;
+	unsigned long out;
+	struct list_head list;
+};
+
+static LIST_HEAD(npu_cmd_list);
 
 struct pci_dev *pdev = NULL;
 void  __iomem *mem;
 
-__le32 *txaddr; 
-dma_addr_t dma_handle;
 unsigned int trap_id = -1;
 int npu_pic_done = 0;
-int rgb_mode = 0;
+int rgb_mode = 1;
 
-int npu_run_pic(void);
+struct npu_device_data devs[NPU_MAX_MINORS];
 
+int npu_run_pic(struct npu_cmd *cmd);
 
 void NPU_WRITE_REG(int reg, int data)
 {
     iowrite32(data, mem + reg); 
-#if 0
-    printk("reg : %x, data %x \n");
-#endif
 }
 
 int NPU_READ_REG(int reg)
@@ -75,6 +99,20 @@ int NPU_READ_REG(int reg)
     return ioread32(mem + reg); 
 }
 
+static unsigned long get_buffer_addr(int fd)
+{
+	struct file *file = fget(fd);
+	struct npu_buffer *npu; 
+	unsigned long addr;
+
+	if (!file)
+		return -0xEBADF;
+
+	npu = file->private_data;
+	addr = npu->phys_start;
+	fput(file);
+	return addr;
+}
 static void npu_reset_seq(void)
 {
     NPU_WRITE_REG(ADDR_NPU_INT_RST_CTRL, 0);
@@ -127,11 +165,6 @@ int mlx_load_kernel(void)
     int core_num;
     int cnt = 10;
     unsigned int data, trap_id, reason;
-
-#ifdef TIME_OUT
-    int dma_wait_time_out = 1000000;
-#endif
-
 
     // Reset
     npu_reset_seq();
@@ -192,26 +225,6 @@ int mlx_load_kernel(void)
         }
 
         msleep(10);
-#ifdef TIME_OUT
-        if (dma_wait_time_out-- == 0) {
-
-            NPU_WRITE_REG(ADDR_NPU_CONTROL, NPU_CTRL_CMD_SRC);
-
-            while(NPU_READ_REG(ADDR_NPU_STATUS) & 0x100) {
-
-                msleep(10);
-
-                if (dma_wait_time_out-- == 0) {
-                    printk("mlx kernal load timeout failed\r\n");
-                    break;
-                }
-            }
-
-            npu_reset_pic();
-            printk("npu_reset called\r\n");
-            return 1;
-        }
-#endif
     } while(cnt--);
 
     // Run MLX Cores
@@ -227,7 +240,7 @@ int mlx_load_kernel(void)
         if (data != 0x107E)
         {
             printk("MLX core %d is not validated.\r\n", i);
-            return 1;
+            return -1;
         }
         msleep(10);
     }
@@ -235,6 +248,26 @@ int mlx_load_kernel(void)
     printk("All %d MLX core(s) is(are) validated.\r\n", core_num);
     return 0;
 }
+
+int npu_run_pic(struct npu_cmd *cmd);
+static void npu_work_func (struct work_struct *work)
+{
+	struct npu_cmd *cmd, *tmp;
+
+	list_for_each_entry_safe(cmd, tmp, &npu_cmd_list, list) {
+		
+		struct npu_network *net = cmd->net;
+		struct npu_device_data *npu = net->npu;
+
+        mutex_lock(&npu->lock);
+
+		npu_run_pic(cmd);
+        mutex_unlock(&npu->lock);
+		list_del(&cmd->list);
+		kfree(cmd);
+	}
+}
+DECLARE_WORK(npu_work, npu_work_func );
 
 static void init_npu(int rgb_mode)
 {
@@ -316,19 +349,57 @@ static int npu_net_release(struct inode *const inode,
 	return 0;
 }
 
+static unsigned int npu_poll(struct file *file,
+			poll_table *wait)
+{
+   	struct npu_network *net = file->private_data;
+    int ret;
+  	
+    poll_wait(file, &net->poll_waitq, wait);
+
+    ret = EPOLLIN;
+
+    return ret;
+}
 long npu_net_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
 {
-        int ret;
         const void __user *udata = (void __user *)arg;
+		struct npu_network *net = fp->private_data;
+        struct npu_buf_info npu_buf;
+        struct npu_device_data *npu_data = &devs[0];
+        int ret;
+
 	    switch	(cmd) {
 	    case NPU_IOCTL_RUN_INFERENCE:
             {
-                ret = npu_run_pic();
+
+                struct npu_cmd *cmd = kmalloc(sizeof(struct npu_cmd),GFP_KERNEL);
+
+                mutex_lock(&npu_data->lock);
+
+               	ret =copy_from_user(&npu_buf, udata, sizeof(npu_buf));
+
+                cmd->net = net;
+                cmd->input = get_buffer_addr(npu_buf.in_fd);
+                cmd->out = get_buffer_addr(npu_buf.out_fd);
+                list_add_tail(&cmd->list, &npu_cmd_list);
+	
+        		schedule_work(&npu_work);
+
+               	mutex_unlock(&npu_data->lock);
+                ret = 0;
+
             }
             break;
         case NPU_IOCTL_SET_COLOR_CONV:
             {
-                rgb_mode = udata;
+                rgb_mode = (int)arg;
+                if (rgb_mode > 1) {
+                       printk("Error, Not Support NPU Color Conversion\n");
+                       ret = -1;
+                        break;
+                }
+                printk("RGB MODE : %d\n", rgb_mode);
                 init_npu(rgb_mode);
             }
             break;
@@ -338,7 +409,7 @@ long npu_net_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
 static const struct file_operations npu_net_fops = {
 	.release = &npu_net_release,
 	.unlocked_ioctl	 = &npu_net_ioctl,
-//	.poll = npu_poll,
+	.poll = &npu_poll,
 };
 
 static int npu_buffer_mmap(struct file *file,
@@ -367,8 +438,9 @@ static const struct file_operations npu_buffer_fops = {
 
 static int npu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
-    int ret;
+    struct npu_device_data *npu_data = &devs[0];
     const void __user *udata = (void __user *)arg;
+    int ret;
 
 	switch	(cmd) {
 
@@ -385,9 +457,15 @@ static int npu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
             net->cmd_buf = kzalloc(sizeof(struct npu_buffer), GFP_KERNEL);
             net->wei_buf = kzalloc(sizeof(struct npu_buffer), GFP_KERNEL);
 
+#if 0
             net->cmd_buf->phys_start = PCI_DMA_NPU_CMD_BUF_ADDRESS;
             net->wei_buf->phys_start = PCI_DMA_NPU_WEIGHT_BUF_ADDRESS;
-
+#else
+            net->cmd_buf->phys_start = net_req.cmd_addr;
+            net->wei_buf->phys_start = net_req.wei_addr;
+#endif
+            net->npu = npu_data;
+            init_waitqueue_head(&net->poll_waitq);
           	ret = anon_inode_getfd("npu_network",
 				       &npu_net_fops,
 				       net,
@@ -403,14 +481,19 @@ static int npu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 	case NPU_IOCTL_BUFFER_CREATE:
 		{
 			struct npu_buffer *buf;
+           	struct npu_buf_req buf_req;
     		int size;
+			copy_from_user(&buf_req, udata, sizeof(buf_req));
 
-            printk(" Buffer Create\n");
-			size = udata;
+			size = buf_req.size;
+           
 			buf = kzalloc(sizeof(struct npu_buffer), GFP_KERNEL);
 			if(buf == NULL) {
 				return -EFAULT;
-			}
+            }
+
+            buf->phys_start = buf_req.addr;
+            buf->nbytes = buf_req.size;
 
 			ret = anon_inode_getfd("npu-buffer",
 				       &npu_buffer_fops,
@@ -426,10 +509,12 @@ static int npu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		}
     break;    
 
-#if 0
-	case NPU_IOCTL_MLX_KERNEL_LOAD:
+#if 1
+	case NPU_IOCTL_LOAD_MLX_KERNEL:
         {
-            mlx_load_kernel();
+            printk("MLX _KERNEL\n");
+            ret = mlx_load_kernel();
+            return ret;
         }
 
 	break;
@@ -449,6 +534,7 @@ static ssize_t npu_write(struct file *filp, const char *buff, size_t len, loff_t
     printk (KERN_INFO "Hello Write~!!.\n");
     return -EINVAL;
 }
+
 void npu_interrupt_handler(void)
 {
     unsigned int reason, data, trap_id;
@@ -457,17 +543,19 @@ void npu_interrupt_handler(void)
     trap_id = (data >> 24) & 0xFF;
 
 #ifdef NPU_DEBUG
-    //_printf("Interrupt reason trap: %x %d\r\n", reason, trap_id);
+    _printf("Interrupt reason trap: %x %d\r\n", reason, trap_id);
 #endif
 
     if (reason == NPU_IRQ_TRAP) {
         NPU_WRITE_REG(ADDR_NPU_IRQ_REASON, NPU_IRQ_TRAP);
         NPU_WRITE_REG(ADDR_NPU_IRQ_CLEAR, 1);
 
-        if (trap_id == 0)
+        if (trap_id == 0) {
             npu_pic_done = 1;
-        else
+        } else {
+            printk("Wrong Interrupt Trap id\n%d\n", trap_id);
             NPU_WRITE_REG(ADDR_NPU_CONTROL, NPU_CTRL_RUN | NPU_CTRL_CMD_SRC);
+        }
     }
     else {
         NPU_WRITE_REG(ADDR_NPU_IRQ_REASON, 0xFFFF);
@@ -537,12 +625,13 @@ void print_npu_status(void)
             core3, core2, core1, core0, dma, room, cmd_cnt);
 }
 
-int npu_run_pic(void)
+int npu_run_pic(struct npu_cmd *cmd)
 {
     unsigned int data;
     int cnt = 10000;
     int ret = 0;
-	
+    struct npu_network *net = cmd->net;
+        
 
 #ifdef TIME_OUT
     int inference_time_out = 1000000*10;
@@ -623,7 +712,13 @@ int npu_run_pic(void)
     data += 1 << 16;    // wdata   : 1
     data += 0 <<  0;    // iaddr   : 13'h0000
     NPU_WRITE_REG(ADDR_NPU_APB_COMMAND, data);
-
+//net->cmd_buf->phys_start, net->wei_buf->phys_start
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR0, net->cmd_buf->phys_start);
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR1, net->wei_buf->phys_start);
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR2, (PCI_DMA_NPU_WORK_BUF_ADDRESS >> 4));
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR3, (cmd->input));
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR4, (cmd->out));
+//printk(" i, o : %x %x \n", cmd->input, cmd->out);
     NPU_WRITE_REG(ADDR_NPU_CONTROL, NPU_CTRL_RUN | NPU_CTRL_CMD_SRC);
 
     do {
@@ -668,7 +763,7 @@ int npu_run_pic(void)
 #endif
 
     NPU_WRITE_REG(ADDR_NPU_CONTROL, 0);
-
+    wake_up_interruptible(&net->poll_waitq);
     if(cnt >= 0)
         ret =  0;
     else
@@ -702,6 +797,7 @@ irqreturn_t test_handler(int irq, void *dev_id)
 
 static int __init npu_init(void)
 {
+   	struct npu_device_data *device;
     unsigned long len;
 	unsigned long phys;
     int retval = 0;
@@ -710,27 +806,34 @@ static int __init npu_init(void)
 
     pdev = pci_get_device(0x10ee, 0x903f, pdev);
     //configure_device(pdev);
-    
+   
+    //printk(" pci e resource %d \n", pci_resource_len(pdev, 0));
+    //printk(" pci e resource %d \n", pci_resource_len(pdev, 1));
     phys = pci_resource_start(pdev, 0);
     len =  pci_resource_len(pdev, 0);
 
-    mem = pci_iomap(pdev, 0, len);
+
+    device = &devs[0];
+    device->mem = pci_iomap(pdev, 0, len);
+    //mem = pci_iomap(pdev, 0, len);
+    mem = device->mem;
+	mutex_init(&device->lock);
 
     npu_reset_seq();
 
     init_npu(rgb_mode);
 
     npu_reset_pic();
-#if 1 
+#if 0 
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR0, (PCI_DMA_NPU_CMD_BUF_ADDRESS >> 4));
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR1, (PCI_DMA_NPU_WEIGHT_BUF_ADDRESS >> 4));
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR2, (PCI_DMA_NPU_WORK_BUF_ADDRESS >> 4));
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR3, (PCI_DMA_NPU_INPUT_BUF_ADDRESS >> 4));
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR4, (PCI_DMA_NPU_OUTPUT_BUF_ADDRESS >> 4));
+#endif
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR5,0x400000000 >> 4);
     NPU_WRITE_REG(ADDR_NPU_BASE_ADDR6,0x400000000 >> 4);
-    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR7,0x480000000 >> 4);
-#endif
+    NPU_WRITE_REG(ADDR_NPU_BASE_ADDR7,0x480000000 >> 4); /* for mlx kernel load */
 
     return 0;
 }
